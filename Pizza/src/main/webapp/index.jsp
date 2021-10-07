@@ -5,6 +5,14 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style type="text/css">
+	span.pizzafont{
+		font-size: 30pt;
+		font-family: "Black Han Sans";
+		color: red;
+	}
+</style>
 </head>
 <% 
 	String mainPage="layout/main.jsp";//기본페이지

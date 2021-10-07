@@ -12,7 +12,7 @@
     <link href="mainmenu/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font CSS -->
     <link href="mainmenu/css/boxicon.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Load Tempalte CSS -->
     <link rel="stylesheet" href="mainmenu/css/templatemo.css">
     <!-- Custom CSS -->
@@ -31,8 +31,8 @@ https://templatemo.com/tm-561-purple-buzz
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
             <a class="navbar-brand h1" href="index.html">
-                <i class='bx bx-buildings bx-sm text-dark'></i>
-                <span class="text-dark h4">Purple</span> <span class="text-primary h4">Buzz</span>
+            <img src="mainmenu/img/logo.png" style="width: 55px;">
+                <span class="pizzafont" style="vertical-align: middle;">피자캠프</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,19 +42,16 @@ https://templatemo.com/tm-561-purple-buzz
                 <div class="flex-fill mx-xl-5 mb-2">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">Home</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">메뉴</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="about.html">About</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">매장</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="work.html">Work</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">이벤트</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="pricing.html">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">Contact</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">커뮤니티</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +68,6 @@ https://templatemo.com/tm-561-purple-buzz
 
     <!-- Start Banner Hero -->
     <div class="banner-wrapper bg-light">
-        <div id="index_banner" class="banner-vertical-center-index container-fluid pt-5">
 
             <!-- Start slider -->
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -85,12 +81,12 @@ https://templatemo.com/tm-561-purple-buzz
 
                         <div class="py-5 row d-flex align-items-center">
                             <div class="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
-                                <h1 class="banner-heading h1 text-secondary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
-                                    Develop <strong>Strategies</strong> for 
+                                <h1 class="banner-heading h1 text-warning display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                                    슬라이드 <strong>이미지</strong> 1 
                                   <br>your business
                               </h1>
-                                <p class="banner-body text-muted py-3 mx-0 px-0">
-                                    Purple Buzz is a corporate HTML template with Bootstrap 5 Beta 1. This CSS template is 100% free to download provided by <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>. Total 6 HTML pages included in this template. Icon fonts by <a rel="nofollow" href="https://boxicons.com/" target="_blank">Boxicons</a>. Photos are from <a rel="nofollow" href="https://unsplash.com/" target="_blank">Unsplash</a> and <a rel="nofollow" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                <p class="banner-body text-warning py-3 mx-0 px-0">
+                                    슬라이드 이미지1 <a rel="nofollow" href="https://templatemo.com/page/1" target="_parent">TemplateMo</a>. Total 6 HTML pages included in this template. Icon fonts by <a rel="nofollow" href="https://boxicons.com/" target="_blank">Boxicons</a>. Photos are from <a rel="nofollow" href="https://unsplash.com/" target="_blank">Unsplash</a> and <a rel="nofollow" href="https://icons8.com/" target="_blank">Icons 8</a>.
                               </p>
                                 <a class="banner-button btn rounded-pill btn-outline-primary btn-lg px-4" href="#" role="button">Get Started</a>
                             </div>
@@ -142,7 +138,7 @@ https://templatemo.com/tm-561-purple-buzz
             </div>
             <!-- End slider -->
 
-        </div>
+        
     </div>
     <!-- End Banner Hero -->
 
@@ -165,20 +161,20 @@ https://templatemo.com/tm-561-purple-buzz
             </p>
         </div>
 
-        <div class="service-tag py-5 bg-secondary">
+        <div class="service-tag py-5 bg-warning">
             <div class="col-md-12">
                 <ul class="nav d-flex justify-content-center">
                     <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-primary active shadow rounded-pill text-light px-4 light-300" href="#" data-filter=".project">All</a>
+                        <a class="filter-btn nav-link btn-outline-danger active shadow rounded-pill text-light px-4 light-300" href="#" data-filter=".project">All</a>
                     </li>
                     <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-primary rounded-pill text-light px-4 light-300" href="#" data-filter=".graphic">Graphics</a>
+                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".graphic">Graphics</a>
                     </li>
                     <li class="filter-btn nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-primary rounded-pill text-light px-4 light-300" href="#" data-filter=".ui">UI/UX</a>
+                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".ui">UI/UX</a>
                     </li>
                     <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-primary rounded-pill text-light px-4 light-300" href="#" data-filter=".branding">Branding</a>
+                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".branding">Branding</a>
                     </li>
                 </ul>
             </div>
@@ -239,183 +235,13 @@ https://templatemo.com/tm-561-purple-buzz
                         </div>
                     </div>
                 </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
-                <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-05.jpg" alt="Card image">
-                    <div class="service-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Digtal Marketing</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project branding">
-                <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-06.jpg" alt="Card image">
-                    <div class="service-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Market Research</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project branding">
-                <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-07.jpg" alt="Card image">
-                    <div class="service-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Business</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic branding">
-                <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-08.jpg" alt="Card image">
-                    <div class="service-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Branding</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
-
-        </div>
+            </div>
+            <!-- End Recent Work -->
     </section>
     <!-- End Service -->
-
-
-
-
-
-
-    <!-- Start View Work -->
-    <section class="bg-secondary">
-        <div class="container py-5">
-            <div class="row d-flex justify-content-center text-center">
-                <div class="col-lg-2 col-12 text-light align-items-center">
-                    <i class='display-1 bx bxs-box bx-lg'></i>
-                </div>
-                <div class="col-lg-7 col-12 text-light pt-2">
-                    <h3 class="h4 light-300">Great transformations successful</h3>
-                    <p class="light-300">Quis ipsum suspendisse ultrices gravida.</p>
-                </div>
-                <div class="col-lg-3 col-12 pt-4">
-                    <a href="#" class="btn btn-primary rounded-pill btn-block shadow px-4 py-2">View Our Work</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End View Work -->
-
-    <!-- Start Recent Work -->
-    <section class="py-5 mb-5">
-        <div class="container">
-            <div class="recent-work-header row text-center pb-5">
-                <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5">Recent Works</h2>
-            </div>
-            <div class="row gy-5 g-lg-5 mb-4">
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-01.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">Social Media</h3>
-                                <p class="card-text">Ullamco laboris nisi ut aliquip ex</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-02.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">Web Marketing</h3>
-                                <p class="card-text">Psum officia anim id est laborum.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-03.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">R & D</h3>
-                                <p class="card-text">Sum dolor sit consencutur</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-04.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">Public Relation</h3>
-                                <p class="card-text">Lorem ipsum dolor sit amet</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-05.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">Branding</h3>
-                                <p class="card-text">Put enim ad minim veniam</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-                <!-- Start Recent Work -->
-                <div class="col-md-4 mb-3">
-                    <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                        <img class="recent-work-img card-img" src="./mainmenu/img/recent-work-06.jpg" alt="Card image">
-                        <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                            <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                                <h3 class="card-title light-300">Creative Design</h3>
-                                <p class="card-text">Mollit anim id est laborum.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div><!-- End Recent Work -->
-
-            </div>
-        </div>
-    </section>
-    <!-- End Recent Work -->
-
-
-
+    
     <!-- Start Footer -->
-    <footer class="bg-secondary pt-4">
+    <footer class="bg-warning pt-4">
         <div class="container">
             <div class="row py-4">
 
@@ -517,7 +343,7 @@ https://templatemo.com/tm-561-purple-buzz
             </div>
         </div>
 
-        <div class="w-100 bg-primary py-3">
+        <div class="w-100 bg-success py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-lg-6 col-sm-12">
