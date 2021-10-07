@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NCS 문제 풀이</title>
+<style type="text/css">
+	#one{
+		margin-left: 30px;
+		margin-bottom: 20px;
+	}
+</style>
+<script type="text/javascript">
+  	
+  function photoSmall(){
+	  var p=document.getElementById("myimg");
+	  var w=p.getAttribute("width");
+	  console.log(typeof(w));
+	  w-=10;//string 타입이라하더라도 - 나 * 는 숫자로 계산됨(+만 안됨)
+	  p.setAttribute("width", w);
+  }
+  
+  function photoLarge(){
+	  var p=document.getElementById("myimg");
+	  var w=p.getAttribute("width");
+	  w=parseInt(w);//string 타입의 숫자를 int 타입으로 변환
+	  console.log(typeof(w));
+	  w+=10;
+	  console.log(w);
+	  p.setAttribute("width", w); 
+  }  
+</script>
+</head>
+<body>
+<h2>1번 문제 풀이</h2>
+<div id="one">
+	<button type="button" onclick="photoSmall()">점점작게</button>
+	<button type="button" onclick="photoLarge()">점점크게</button>	
+</div>
+<img src="../bts/26.JPG" width="200" id="myimg">
+<hr>
+<h2>2번 문제 풀이</h2>
+<script type="text/javascript">
+	var imgarr=["../image/f1.png",
+		"../bts/14.JPG",
+		"../image/f4.png",
+		"../food/스파게티.jpg",
+		"../food/만두.jpg"];
+	
+	var s="";
+	for(var i=0;i<imgarr.length;i++){
+		s+="<img src='"+imgarr[i]+"' width='200'>";
+	}
+   	document.write(s);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

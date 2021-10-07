@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	a{text-decoration: none;}
+	ul li{list-style: none;}
+	li.main{float: left;}
+	li.main>a{
+		display: block;
+		width: 180px;
+		color: #333;
+		font-weight: bold;
+		font-family: 'Gaegu';
+		font-size: 21pt;
+	}
+	li.main>a:hover{
+		cursor: pointer;
+		 color: #ff720b;
+	}
+	
+	ul.submenu{
+		margin-left: 0;
+		font-size: 12pt;
+		font-family: 'Gugi';
+		padding-left: 0;
+		margin-top: 15px;
+	}
+	
+	ul.submenu>li{
+		display: block;
+		width: 180px;
+		height: 20px;
+		color: #333;
+	}
+	
+	ul.submenu>li:hover{
+		color: #ff720b;
+		cursor: pointer;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		//서브 메뉴 숨기기
+		$("ul.submenu").hide();
+		
+		$("li.main>a").hover(function() {
+			$(this).next().show('slow');
+		}, function() {
+			$(this).next().hide();
+		});
+	});
+</script>
+</head>
+<body>
+<div>
+	<ul>
+		<!-- 1번째 메뉴 -->
+		<li class="main">
+			<a>비트캠프 안내</a>
+			<ul class="submenu">
+				<li>초대의글</li>
+				<li>주변안내</li>
+				<li>찾아오시는길</li>				
+			</ul>
+		</li>
+		<!-- 2번째 메뉴 -->
+		<li class="main">
+			<a>강의장 안내</a>
+			<ul class="submenu">
+				<li>201</li>
+				<li>301</li>
+				<li>401</li>	
+				<li>501</li>			
+			</ul>
+		</li>
+		<!-- 3번째 메뉴 -->
+		<li class="main">
+			<a>정보광장</a>
+			<ul class="submenu">
+				<li>게시판</li>
+				<li>Q&A게시판</li>
+				<li>방명록</li>				
+			</ul>
+		</li>
+		<!-- 4번째 메뉴 -->
+		<li class="main">
+			<a>과정소개</a>
+			<ul class="submenu">
+				<li>Java&Front</li>
+				<li>Big Data</li>
+				<li>C&C++</li>				
+			</ul>
+		</li>
+	</ul>
+</div>
+
+</body>
+</html>

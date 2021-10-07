@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	button{
+		width: 120px; height: 40px;
+		line-height: 40px;
+		border-radius: 20px;
+		font-size: 1.3em;
+		font-family: 'Dokdo';
+		cursor: pointer;
+	}
+	
+	button.a{background: #2e8b57; color: #fff;}
+	button.b{background: #db7093;}
+	
+	div {
+		position: absolute; width: 300px; height: 150px;
+		font-size: 19px; font-family: 'Gugi';
+	}
+	
+	#one{
+		left: 50px; top: 100px;
+	}
+	
+	#two{
+		left: 280px; top: 100px;
+	}
+	#three{
+		left: 700px; top: 100px;
+	}
+	
+	#result{
+		left: 100px; font-size: 2em;
+		text-align: center; width: 1000px;
+		top: 400px;  border: 3px solid gold;
+		border-radius: 30px; padding-top: 20px;		
+	}
+	
+	#three h3:hover{
+		cursor: pointer;
+		background-color: orange;
+	}
+</style>
+<script type="text/javascript">
+$(function(){
+	var theater="", movie="";
+	//#one 에 버튼 추가
+	var b="<button type='button' id='btn1' class='a'>영화예매</button>";
+	$("#one").append(b);
+	
+	//버튼1 이벤트
+	$("#btn1").click(function(){
+		var b2="<button type='button' id='btn2' class='b'>극장선택</button>";
+		b2+="&nbsp;<button type='button' id='btn3' class='b'>영화선택</button>";
+		$("#two").html(b2);
+	});
+	
+	//버튼2는 나중에 동적생성이므로 on 이벤트
+	$(document).on("click","#btn2",function(){
+		var s="<h3 class='theater'>CGV 강남점</h3>";
+		s+="<h3 class='theater'>MEGABOX 강남점</h3>";
+		s+="<h3 class='theater'>CGV 교보타워점</h3>";
+		$("#three").html(s);		
+	});
+	
+	//버튼3는 나중에 동적생성이므로 on 이벤트
+	$(document).on("click","#btn3",function(){
+		var s="<h3 class='movie'>D.P</h3>";
+		s+="<h3 class='movie'>모가디슈</h3>";
+		s+="<h3 class='movie'>씽크홀</h3>";
+		$("#three").html(s);		
+	});
+	
+	//영화관이나 제목 클릭시 이벤트
+	$(document).on("click","#three h3",function(){
+		//클릭한h3태그에서 class 를 얻는다
+		var select=$(this).attr("class");
+		if(select=='theater')
+			theater="극장명:"+$(this).text();
+		else
+			movie="영화제목:"+$(this).text();
+		$("#result").html(theater+"<br>"+movie);
+	});
+});
+</script>
+</head>
+<body>
+<div id="one"></div>
+<div id="two"></div>
+<div id="three"></div>
+<div id="result"></div>
+</body>
+</html>
+
+
+
+
+

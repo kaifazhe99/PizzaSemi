@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	.a{
+		position: absolute;
+		left: 200px;
+		top: 100px;
+	}
+	
+	.b{
+		position: absolute;
+		left: 200px;
+		top: 300px;
+	}
+</style>
+<script type="text/javascript">
+	//처음 로딩시 존재했던 버튼들은 click 이벤트나 on 이벤트 모두 가능하다
+	$(function(){
+		$("body").append("<button type='button' id='btn2'>버튼 2</button>");
+		
+		//버튼1 이벤트
+		/* $("#btn1").click(function(){
+			$("div.a").html("<button type='button' id='btn3'>버튼 3</button>");
+		}); */
+		
+		//위의 코드를 on 함수를 이용해서 구현해보세요
+		$("#btn1").on("click",function(){
+			$("div.a").html("<button type='button' id='btn3'>버튼 3</button>");
+		});
+		$("#btn2").on("click",function(){
+			$("div.b").html("<button type='button' id='btn4'>버튼 4</button>");
+		});
+		
+		//동적으로 나중에 생성된 btn3,btn4 이벤트를 구현해보세요
+		//버튼을 누르면 해당 영역에 아무 이미지나 추가하기
+		//나중에 생성되는 요소들은 이벤트시 아래와 같은 형식으로 구현한다
+		// $(document).on("이벤트","selector",콜백함수) // document대신 "body" 도 가능
+		$(document).on("click","#btn3",function(){
+			$("div.a").append("<img src='../image/f1.png' width='100'>");
+		});
+		
+		$(document).on("click","#btn4",function(){
+			$("div.b").append("<img src='../image/f2.png' width='100'>");
+		});
+	});
+</script>
+</head>
+<body>
+<button type="button" id="btn1">버튼 1</button>
+<div class="a">A</div>
+<div class="b">B</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<h2>마우스를 올리면 이미지가 변경되고 벗어나면 다시 원래대로 변경</h2>
+<img src="../food/치즈돈까스.jpg" width="300">
+<img src="../food/떡볶이.jpg" width="300">
+<img src="../food/라면.jpg" width="300">
+<script type="text/javascript">
+	$("img").mouseover(function() {
+		imgsrc=$(this).attr("src");
+		$(this).attr("src","../food/알밥.jpg");
+	});
+	
+	$("img").mouseout(function() {
+		$(this).attr("src",imgsrc);
+	});
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{
+		width: 80%;
+		min-width: 400px;
+		border-collapse: collapse;
+	}
+	tr{
+		height: 40px;
+	}
+	th,td{
+		font-size: 1.2em;
+		text-align: center;
+		border: 1px solid green;
+	}
+</style>
+</head>
+<body>
+<table>
+	<caption><b style="font-size: 2em;">[구구단]</b></caption>
+	<tr>
+	<script type="text/javascript">
+		for(var dan=2;dan<=9;dan++){
+			var s="<th bgcolor='pink'>"+dan+"단</th>";
+			document.write(s);
+		}
+	</script>	
+	</tr>
+	<script type="text/javascript">
+	  var s="";
+	  for(var i=1;i<=9;i++){
+		  s+="<tr>";
+		  for(var dan=2;dan<=9;dan++){
+			  s+="<td>"+dan+"x"+i+"="+dan*i+"</td>";
+		  }
+		  s+="</tr>";
+	  }
+	  document.write(s);
+	</script>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

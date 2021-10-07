@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#time{
+		font-size: 2em;
+		margin-left: 100px;
+		font-weight: bold;
+		font-family: 'Comic Sans MS';
+	}
+	#myimg{position: absolute;}
+</style>
+<script type="text/javascript">
+    var xpos=200;
+    var ypos=350;
+    var myimg;
+    
+	window.onload=function(){
+		writeTime();
+		//1초마다 시간 다시 출력
+		setInterval(function() {
+			writeTime();
+		}, 1000);
+		
+		myimg=document.getElementById("myimg");
+		/* myimg.style.left=xpos+"px";
+		myimg.style.top=ypos+"px"; */
+		
+		//5초뒤에 딱 한번 이미지의 위치 변경하기
+		setTimeout(function() {
+			myimg.style.left=xpos+"px";
+		    myimg.style.top=ypos+"px";
+		},5000);		
+	}
+	
+	function writeTime(){
+		var date=new Date();
+		var h=date.getHours();
+		var m=date.getMinutes();
+		var s=date.getSeconds();
+		//1자리 숫자일경우에는 앞에 0 붙이기
+		var time=h+":"+(m<10?"0"+m:m)+":"+(s<10?"0"+s:s);
+		document.getElementById("time").innerHTML=time;
+	}
+</script>
+</head>
+<body>
+<h2>setTimeout 와 setInterval 에 대한 공부</h2>
+<div id="time"></div>
+<img src="../image2/03.png" id="myimg">
+</body>
+</html>

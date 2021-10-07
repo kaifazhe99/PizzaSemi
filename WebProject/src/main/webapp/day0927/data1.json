@@ -1,0 +1,9 @@
+[
+	{"term":"컴퓨터의 이해","part":"no.1","definition":"하드웨어 알기",
+	  "quote":["하드웨어란","CPU란","RAM이란"],"author":"이하나"},
+	{"term":"자바의 정석","part":"no.2",
+	  "quote":["연산자","제어문","클래스구조"],"author":"남궁씨"},
+	{"term":"HTML","part":"no.3",
+	  "quote":["table","img","h태그"],"author":"정인씨"}	,
+	{"term":"스프링 프레임워크","part":"no.4","definition":"Spring이란"}
+]

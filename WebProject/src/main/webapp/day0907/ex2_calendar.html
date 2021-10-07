@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="ex2_style.css">
+<script type="text/javascript">
+	window.onload=function(){
+		calendarView(year, month);
+		
+		//버튼 이벤트
+		document.getElementById("btnview").onclick=function(){
+			var myyear=document.getElementById("selyear").value;
+			var mymonth=document.getElementById("selmonth").value;
+			console.log(myyear,mymonth);
+			calendarView(myyear, mymonth);
+		}
+	}
+	
+	function calendarView(year,month){
+		//alert(year+","+month);
+		//전달받은 년도와 월의 1일의 요일을 구해야 한다
+		var currDate=new Date(year,month-1,1);
+		var week=currDate.getDay();
+		console.log(week);//요일숫자: 일:0,....토:6
+		var s="";
+		s+="<table>";
+		s+="<caption><b>"+year+"년"+month+"월 달력</b></caption>";
+		s+="<tr>";
+		s+="<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>"
+		s+="</tr>";
+		
+		//요일 숫자만큼 빈 칸(td) 생성하기
+		s+="<tr>";
+		for(var i=1;i<=week;i++){
+			s+="<td> </td>";
+		}
+		
+		//해당월이 몇일까지 있는지 endday 구하기
+		//그다음 1일부터 endday까지 출력하는데 토요일 출력후 tr닫고 다시 tr열고..
+		var endday=0;
+		
+		//month를 문자로 인식해서 default가 실행되므로
+		//정수타입으로 변환하자
+		switch(parseInt(month)){
+		case 2:
+			if(year%4==0 && year%100!=0 || year%400==0)
+				endday=29;
+			else
+				endday=28;
+			break;
+		case 4: case 6: case 9: case 11:
+			endday=30;
+			break;
+		default:
+			endday=31;
+		}
+		console.log(endday);
+		for(var i=1;i<=endday;i++){
+			week++;
+			//주말 토,일 글자색은 빨강색으로
+			if(week%7==1 || week%7==0){
+				s+="<td style='color:red;'>"+i+"</td>";
+			}else{
+				s+="<td>"+i+"</td>";
+			}
+			
+			if(week%7==0){
+				s+="</tr><tr>";
+			}
+		}
+		//토요일에서 끝난경우는 바로 tr 닫고
+		//토요일에서 끝나지 않은 경우 나머지 빈칸 그리기
+		if(week%7==0){
+			s+="</tr>";
+		}else{			
+			while(true){				
+				week++;
+				s+="<td> </td>";
+				if(week%7==0){
+					s+="</tr>";
+					break;
+				}
+			}
+		}
+		s+="</table>";
+		document.getElementById("calview").innerHTML=s;
+	}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+	//현재 날짜 구하기
+	var date=new Date();
+	var year=date.getFullYear();
+	var month=date.getMonth()+1;
+	console.log(year,month);
+</script>
+<div class="seldate">
+	<select id="selyear">
+		<script type="text/javascript">
+			var s="";
+			for(var y=year;y>=1950;y--){
+				s+="<option>"+y+"</option>";			
+			}
+			document.write(s);
+		</script>
+	</select>
+	<b>년</b>&nbsp;&nbsp;&nbsp;
+	<select id="selmonth">
+		<script type="text/javascript">
+			var s="";
+			for(var m=1;m<=12;m++){
+				if(m==month)
+					s+="<option selected>"+m+"</option>";
+					else
+						s+="<option>"+m+"</option>";
+			}
+			document.write(s);
+		</script>
+	</select>
+	<b>월</b>&nbsp;&nbsp;&nbsp;
+	<button type="button" id="btnview">달력확인</button>	
+</div>
+<div id="calview"></div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

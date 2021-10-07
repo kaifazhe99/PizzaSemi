@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+		//처음 시작시 호출되는 이벤트함수
+		//alert("load");
+		
+		//이미지의 요소값을 얻자
+		var p=document.getElementById("myimg");
+		
+		//id 가 btn1 인 버튼 클릭시 호출되는 이벤트
+		document.getElementById("btn1").onclick=function(){
+			//alert("버튼1");
+			//style 로 지정한 width 값 얻어오기
+			var w=p.style.width;
+			//alert(w);//200px 이라고 나옴
+			w=parseInt(w, 10);//w에서10진수값을 얻는다
+			//alert(w); //200
+			w-=10;
+			//width style 변경
+			p.style.width=w+"px";
+		}
+		
+		document.getElementById("btn2").onclick=function(){
+			//alert("버튼2");
+			var w=p.style.width;
+			//alert(w);//200px 이라고 나옴
+			w=parseInt(w, 10);//w에서10진수값을 얻는다
+			//alert(w); //200
+			w+=10;
+			//width style 변경
+			p.style.width=w+"px";
+		}
+	}
+</script>
+</head>
+<body>
+<h2>사진크기변경 예제를 다른 방법으로 구현</h2>
+<button type="button" id="btn1">점점작게</button>
+<button type="button" id="btn2">점점크게</button>
+<hr color="orange" width="500" align="left" size="10">
+<img src="../food/돈까스.jpg" id="myimg" style="width: 200px;">
+</body>
+</html>

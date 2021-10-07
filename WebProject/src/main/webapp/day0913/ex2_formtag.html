@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	div.right{
+		position: absolute;
+		left: 300px;
+		border: 10px solid gray;
+		padding: 20px;		
+	}
+</style>
+</head>
+<body>
+<div class="right">
+	<img src="../image2/01.png" style="max-width: 300px;">	
+</div>
+<div class="left">
+	<b>이미지선택</b>
+	<select id="selimage">
+		<option value="../image2/01.png">이미지1</option>
+		<option value="../image2/02.png">이미지2</option>
+		<option value="../image2/03.png">이미지3</option>
+		<option value="../bts/10.JPG">아이유</option>
+		<option value="../bts/2.JPG">한가인</option>
+		<option value="../bts/26.JPG">산토리니</option>		
+	</select>
+	<br><br>
+	<h4>테두리선 선택</h4>
+	<input type="radio" name="line" value="dotted">점선
+	<input type="radio" name="line" value="solid" checked="checked">실선
+	<input type="radio" name="line" value="dashed">파선
+	<input type="radio" name="line" value="groove">입체선	
+	<br><br>
+	<b>박스그림자 : </b>
+	<input type="checkbox" id="shadow">그림자넣기	
+</div>
+<script type="text/javascript">
+	$("#selimage").change(function(){
+		var im=$(this).val();
+		$("div.right img").attr("src",im);
+	});
+	
+	$("input[name='line']").click(function(){
+		$("div.right").css("border-style",$(this).val());
+	});
+	
+	$("#shadow").click(function(){
+		if($(this).is(":checked")){
+			$("div.right").css("box-shadow","5px 5px 5px orange");
+		}else{
+			$("div.right").css("box-shadow","");
+		}
+		
+	});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

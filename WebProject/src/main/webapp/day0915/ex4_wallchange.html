@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	body,h1,ul{
+		margin: 0;
+		padding: 0;
+	}
+	
+	li{list-style: none;}
+	
+	body{background-color: #fff;}
+	
+	div.wall{
+		width: 800px; height: 600px;
+		margin: 50px auto;/*가운데(가로)로 이동*/
+		background-color: #999;
+		position: relative;
+		box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		border-radius: 5px;
+		border: 5px solid #333;
+		overflow: hidden;/*스크롤바 해제, 기본은 auto*/
+	}
+	
+	h1.title{
+		font-size: 37px;
+		position: absolute;
+		right: 50px;
+		top: 60px;
+		width: 130px;
+		font-family: 'Nanum Pen Script';
+	}
+	
+	div.wall ul.list{
+		background-color: rgba(0,0,0,0.9);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100px;
+		border-top: 1px solid #666;		
+	}
+	
+	div.wall ul.list li{
+		float: left;
+		margin-left: 10px;
+		margin-top: 10px;
+		width: 70px; height: 70px;
+		border: 5px solid #333;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+	div.wall ul.list li img{width: 100%;}
+	
+	/*제이쿼리에서 사용할 클래스*/
+	div.wall ul.list li.active{
+		border-color: #8dff07;
+	}
+</style>
+<script type="text/javascript">
+$(function(){
+	//벽지 이미지 클릭시
+	$(".list li img").click(function(){
+		//현재 클릭한 이미지의 부모인 li 에 active 클래스 추가하기
+		$(this).parent().addClass("active");
+		
+		//부모태그의 형제태그에 들어있는 active 제거
+		$(this).parent().siblings().removeClass("active");
+		
+		//클릭한 이미지의 title 속성값을 얻는다
+		var title=$(this).attr("title");
+		//위에서 얻은 title을 h1.title 에 넣는다
+		$("h1.title").html(title);
+		
+		//클릭한 이미지의 src를 얻는다(변수명 imgSrc)
+		var imgSrc=$(this).attr("src");
+		//imgSrc 를 div.wall 에 배경 이미지로 넣는다
+		var url="url('"+imgSrc+"')";
+		$("div.wall").css("background-image",url);
+		
+	});
+});
+</script>
+</head>
+<body>
+<div class="wall">
+	<h1 class="title">Select Page</h1>
+	<img alt="" src="../jimage/cover2.png">
+	<ul class="list">
+		<li><img src="../jimage/b01.png" title="Pear"></li>
+		<li><img src="../jimage/b02.png" title="Checker"></li>
+		<li><img src="../jimage/b03.png" title="Bamboo"></li>
+		<li><img src="../jimage/b04.png" title="School"></li>
+		<li><img src="../jimage/b05.png" title="Leap"></li>
+		<li><img src="../jimage/b06.png" title="Forest"></li>	
+	</ul>
+</div>
+</body>
+</html>

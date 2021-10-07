@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>예제1:테이블 연습</title>
+<!-- <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet"> -->
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+	#tb1>table{
+		width: 500px;
+		border-collapse: collapse;
+	}
+	
+	#tb1>table>thead>tr{
+		height: 50px;
+		background-color: #ccc;
+	}
+	
+	#tb1>table th,#tb1>table td{
+		border: 1px solid gray;
+	}
+		
+	#tb1>table th:nth-child(1){
+		width: 40px;		
+	}
+	
+	#tb1>table th:nth-child(2){
+		width: 250px;
+	}
+	
+	#tb1>table td img{
+		width: 100%;
+	}
+	
+	#tb1>table>thead>tr>th{
+		border-bottom: 3px magenta double;
+	}
+	
+	.styleno{
+		font-family: 'Black Han Sans', sans-serif;
+		text-align: center;
+		font-size: 1.5em;
+	}
+	
+	.styleinfo{
+		font-family: 'Nanum Pen Script', cursive;
+		font-size: 20pt;
+	}
+	
+	#tb1>table>thead>tr{
+		font-family: 'Single Day';
+		font-size: 1.5em;
+	}
+</style>
+</head>
+<body>
+<div id="tb1">
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th><th>사진</th><th>정보</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="3" class="styleno">1</td>
+				<td rowspan="3"><img src="../bts/2.JPG"></td>
+				<td class="styleinfo">이름:한가인</td>
+			</tr>
+			<tr>
+				<td class="styleinfo">핸드폰:010-2222-3333</td>
+			</tr>
+			<tr>
+				<td class="styleinfo">주소:역삼동</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div{
+		border: 2px solid gray;
+		width: 400px;
+		height: 50px;
+		font-size: 20pt;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<input type="button" value="alert" onclick="alert('이게 alert 입니다')">
+<button type="button" onclick="promptTest()">prompt</button>
+<button type="button" onclick="confirmTest()">confirm</button>
+<hr>
+<div id="memo">test</div>
+
+<script type="text/javascript">
+	function promptTest(){
+		var name=prompt("당신의 이름을 입력해주세요","김태희");
+		var msg="내 이름은 "+name+" 입니다";
+		document.getElementById("memo").innerHTML="<b>"+msg+"</b>";
+		
+		//innerText 는 텍스트만 가능(html코드를 넣어도 텍스트로 출력)
+		//document.getElementById("memo").innerText="<b>"+msg+"</b>";
+	}
+	
+	function confirmTest()
+	{
+		var ans=confirm("DB 에 데이타를 추가할까요?");
+		console.log(ans);//크롬 콘솔 확인,true/false
+		var m=document.getElementById("memo");
+		if(ans){
+			m.innerHTML="DB 에 데이타를 추가했습니다";
+		}else{
+			m.innerHTML="DB 작업을 취소합니다";
+		}
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+

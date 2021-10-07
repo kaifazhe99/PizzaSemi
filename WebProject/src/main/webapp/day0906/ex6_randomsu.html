@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+	
+	b,#num,#result{
+		font-family: 'Black Han Sans';
+		font-size: 17pt;
+	}
+	
+	#img1{
+		position: absolute;
+		left: 500px;
+		top: 100px;
+	}
+	#img2{
+		position: absolute;
+		left: 600px;
+		top: 100px;
+	}
+	
+	#img3{
+		position: absolute;
+		left: 500px;
+		top: 250px;
+	}
+	
+	b{margin-left: 160px;}
+	#result{
+		position: absolute;
+		left: 50px;
+		top: 100px;
+		width: 400px;
+		height: 400px;
+		border: 1px solid black;
+		padding: 10px 10px;
+	}
+	
+	button{
+		width: 250px;
+		height: 40px;
+		font-family: 'Black Han Sans';
+		font-size: 17pt;
+		position: absolute;
+		left: 150px;
+		top: 550px;
+	}
+</style>
+<script type="text/javascript">
+var rnd;//난수구할 변수
+window.onload=function(){
+	var num=document.getElementById("num");
+	var img1=document.getElementById("img1");
+	var img2=document.getElementById("img2");
+	var img3=document.getElementById("img3");
+	var r=document.getElementById("result");	
+	var cnt=0;
+	
+	//난수 발생
+	randSu();
+	
+	//버튼 이벤트
+	document.getElementById("btnrefresh").onclick=function(){
+		randSu();
+		cnt=0;
+		r.innerHTML="";
+		img1.setAttribute("src", "");
+		img2.setAttribute("src", "");
+		img3.setAttribute("src", "");
+		num.value="";
+		num.focus();		
+	}
+	
+	
+	num.onkeyup=function(e){
+		if(isNaN(this.value)){
+			alert("숫자로만 입력해주세요");
+			num.value="";
+			num.focus();
+			return;
+		}
+		if(this.value.length==0){
+			img1.setAttribute("src","");
+			img2.setAttribute("src","");
+		}else if(this.value.length==1){
+			img1.setAttribute("src","../image2/"+this.value+".gif");
+			img2.setAttribute("src","");
+		}else if(this.value.length==2){
+			var two=this.value.charAt(1);//2번째 숫자얻기
+			img2.setAttribute("src","../image2/"+two+".gif");
+		}
+		
+		//입력후 엔터
+		if(e.keyCode==13){			
+			var su=parseInt(this.value);
+			cnt++;
+			if(su>rnd){
+				r.innerHTML+=cnt+":"+su+"<br>=>"+su+"보다 작습니다<br>";
+			}else if(su<rnd){
+				r.innerHTML+=cnt+":"+su+"<br>=>"+su+"보다 큽니다<br>";
+			}else{
+				r.innerHTML+=cnt+":"+su+"<br>축하합니다. 정답입니다";
+				img3.setAttribute("src", "../image2/10.png");
+			}
+			
+			//입력값 지운후 포커스
+			num.value="";
+			num.focus();
+		}
+	}
+}
+
+function randSu(){
+	rnd=parseInt(Math.random()*99)+1;//1~99
+}
+</script>
+</head>
+<body>
+<b>숫자입력:</b>
+<input type="text" id="num" maxlength="2" size="5">
+<img src="" id="img1">
+<img src="" id="img2">
+<img src="" id="img3">
+
+<div id="result"></div>
+<button type="button" id="btnrefresh">새로운 난수 발생</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	div.bitcamp{
+		position: absolute;
+		left: 300px;
+		width: 250px;
+		height: 300px;
+		border: 2px groove gray;
+		border-radius: 30px;
+		top:100px;
+	}
+	
+	ul li{list-style: none;}
+	ul.menu>li{
+		font-size: 2em;
+		font-family: 'Gugi';
+		font-weight: bold;
+		cursor: pointer;
+	}
+	ul.submenu>li{
+		font-size: 24px;
+		font-family: 'Gaegu';
+	}
+	
+	ul.submenu>li:hover{
+		background-color: #ccc;
+		color:yellow;
+	}
+</style>
+<script type="text/javascript">
+$(function(){
+	//모든 서브메뉴 숨기기
+	$("ul.submenu").hide();
+	//문제: 이벤트
+	//메인메뉴명을 클릭시 해당 메뉴의 서브메뉴가 나타나도록 한다
+	//다른 서브메뉴들은 모두 숨긴다
+	$("ul.menu>li").click(function(){
+		$(this).siblings().find('ul.submenu').hide('slow');//fast
+		$(this).find('ul.submenu').show('slow');
+	});
+});
+</script>
+</head>
+<body>
+<div class="bitcamp">	
+	<ul class="menu">
+	  <li>File
+		   <ul class="submenu">
+		  		<li>New</li>
+				<li>Open File</li>
+				<li>Save</li>
+				<li>Rename</li>	
+			</ul>
+		</li>
+	    <li>Edit
+		    <ul class="submenu">
+		  		<li>Cut</li>
+				<li>Copy</li>
+				<li>Paste</li>
+				<li>Delete</li>	
+			</ul>
+		</li>
+		<li>Help
+		    <ul class="submenu">
+		  		<li>Search</li>
+				<li>Donate</li>
+				<li>Install</li>
+				<li>Market</li>	
+			</ul>
+		</li>		
+	</ul>
+	  		
+
+</div>
+</body>
+</html>

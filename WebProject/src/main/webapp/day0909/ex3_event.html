@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<h3 class="a"></h3>
+<hr>
+<h3 class="b">h3의 내용을 이곳에 복사하세요</h3>
+<script type="text/javascript">
+  $("h3.a").html("예쁜 캐릭터인형입니다").append("<img src='../image2/03.png'>");
+  
+  //문제 
+  //h3.a 에서 클릭하면 "안의 코드를 복사하였습니다" 라고 나오게 한후
+  //h3.b 에서 클릭을 하면 그 내용이 그대로 출력(복사)되도록 해보세요
+  $("h3.a").click(function(){
+	 tag=$(this).html();
+	 alert("안의 코드를 복사하였습니다");
+  });
+  
+  $("h3.b").click(function(){
+	 $(this).html(tag);
+	 //$(this).append(tag); //계속 추가
+  });
+  
+</script>
+</body>
+</html>

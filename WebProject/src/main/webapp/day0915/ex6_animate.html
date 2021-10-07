@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Gaegu&family=Gugi&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	div.wall{
+		position: absolute;
+		width: 200px;
+		height: 500px;
+		background-image: url('../jimage/bg2.png');		
+		z-index: 2;		
+	}
+	
+	#img1{
+		position: absolute;
+		left: 140px;
+		top: 100px;
+		width:150px;
+		height:200px;
+		z-index: 1;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#img1").click(function(){
+			//3번째 함수는 너비가 0이되면 호출되는 함수이다
+			$(this).animate({width:'0px'},'slow',function(){
+				$(this).animate({width:'150px'},'slow');
+			});
+		});
+		
+		//3초에 한번씩 이미지 클릭 효과
+		/* setInterval(function() {
+			$("#img1").trigger("click");
+		}, 3000); */
+	});
+</script>
+</head>
+<body>
+<div class="wall"></div>
+<img src="../jimage/03.png" id="img1">
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

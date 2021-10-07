@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+	
+	table{
+		border-collapse: collapse;
+		width: 500px;
+		border: 3px solid green;
+	}
+	
+	th,td{
+		border: 1px solid gray;
+	}
+	
+	#result{
+		font-family: 'Nanum Pen Script';
+		width: 500px;
+		height: 300px;
+		font-size: 1.3em;
+		border: 2px inset gray;
+		margin-top: 20px;
+		padding: 5px 10px;
+	}
+</style>
+</head>
+<body>
+<form name="frm">
+<table>
+	<caption><b>폼 태그들 연습</b></caption>
+	<tr>
+		<th bgcolor="orange" width="100">이름</th>
+		<td>
+			<input type="text" id="name" size="10" placeholder="이름"
+				value="이효리">
+		</td>
+	</tr>
+	<tr>
+		<th bgcolor="orange" width="100">비밀번호</th>
+		<td>
+			<input type="password" id="pass" size="10" placeholder="비밀번호"
+				value="12345">
+		</td>
+	</tr>
+	<tr>
+		<th bgcolor="orange" width="100">혈액형</th>
+		<td>
+			<input type="radio" value="A" name="blood">A형
+			<input type="radio" value="B" name="blood" checked>B형
+			<input type="radio" value="AB" name="blood">AB형
+			<input type="radio" value="O" name="blood">O형			
+		</td>
+	</tr>
+	<tr>
+		<th bgcolor="orange" width="100">생년월일</th>
+		<td>
+			<input type="date" value="2000-12-12" id="birth">	
+		</td>
+	</tr>
+	<tr>
+		<th bgcolor="orange" width="100">취미</th>
+		<td>
+			<input type="checkbox" name="hobby" value="낚시">낚시
+			<input type="checkbox" name="hobby" value="게임">게임
+			<input type="checkbox" name="hobby" value="여행">여행
+			<input type="checkbox" name="hobby" value="영화감상">영화감상		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<button type="button" id="btnresult">결과 출력</button>
+		</td>
+	</tr>
+</table>
+</form>
+<div id="result">테스트123</div>
+
+<script type="text/javascript">
+	document.getElementById("btnresult").onclick=function(){
+		var out=document.getElementById("result");
+		var s="";
+		s="이름 : "+document.getElementById("name").value+"<br>";
+		s+="비밀번호 : "+document.getElementById("pass").value+"<br>";
+		s+="혈액형 : "+frm.blood.value+"형<br>";//form의 name 을 통해서 접근
+		s+="생년월일:"+document.getElementById("birth").value+"<br>";
+		//s+="취미:"+frm.hobby.value+"<br>";//안됨xxxxxx
+		
+		console.log(frm.hobby.length);//hobby 의 갯수
+		//for문으로 작성
+		var h="";
+		for(var i=0;i<frm.hobby.length;i++){
+			//채크박스는 선택된 경우에만 value값을 얻어야한다
+			if(frm.hobby[i].checked)//체크일경우 true,아닐경우 false
+				h+="["+frm.hobby[i].value+"]";
+		}
+		s+="취미:"+(h.length==0?"취미없음":h)+"<br>";
+		out.innerHTML=s;
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

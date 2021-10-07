@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Local Storage 연습</h1>
+<button id="btn1">저장</button>
+<button id="btn2">삭제</button>
+<button id="btn3">전체삭제</button>
+<button id="btn4">내용보기</button>
+<script type="text/javascript">
+	document.getElementById("btn1").onclick=function(){
+		//로칼 스토리지에 저장하는 방법 3가지
+		//확인:크롬의 
+		localStorage.setItem("key1", "안녕");
+		localStorage.key2="Happy";
+		localStorage["key3"]="Hello";
+	}
+	document.getElementById("btn2").onclick=function(){
+		//key2 만 삭제해보자
+		localStorage.removeItem("key2");
+	}
+	document.getElementById("btn3").onclick=function(){
+		localStorage.clear();//전체 삭제
+	}
+	document.getElementById("btn4").onclick=function(){
+		//가져오는거도 3가지 방법이 있다
+		var s="localStorage 값 확인\nkey1="+localStorage.key1
+		+"\nkey2="+localStorage["key2"]+"\nkey3="+localStorage.getItem("key3");
+		alert(s);
+	}
+</script>
+</body>
+</html>
+
+
+

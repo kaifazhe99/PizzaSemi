@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+<h4>html():자바스크립트의 innerHTML 에 해당</h4>
+<h4>text():자바스크립트의 innerText 에 해당</h4>
+<h4>append(): 추가</h4>
+<hr>
+<h2>1</h2>
+<h2>2</h2>
+<h2>3</h2>
+<script type="text/javascript">
+	//h2중 1번째에 html 태그 넣기
+	//$("h2").eq(0).html("<b>H2 태그입니다</b>");//방법1
+	//$("h2:eq(0)").html("<b>H2 태그입니다</b>");//방법2
+	//$("h2:first").html("<b>H2 태그입니다</b>");//방법3
+	$("h2").first().html("<b>H2 태그입니다</b>");//방법4
+	
+	//h2 태그중 2번째에 text 로 태그 넣기
+	$("h2:eq(1)").text("<b>2번째 H2태그입니다</b>");
+	
+	//h2 마지막 태그에 html 태그를 넣고 css 추가하기
+	$("h2:last").html("<b>마지막 H2 태그입니다</b>").css("color","red");
+	
+	//append 는 기존 값 뒤에 추가하기
+	$("h2:eq(0)").append("<img src='../image2/01.png'>");
+	
+	//3번째 h2태그 뒤에 이미지를 넣고 너비,높이를 모두 100px로 변경하시오
+	$("h2:eq(2)").append("<img src='../image2/02.png'>");
+	$("h2:eq(2) img").css({
+		"width":"100px",
+		"height":"100px"
+	});
+	
+	//이벤트
+	$("h2:eq(0)").click(function(){
+		alert($(this).text());//자기자신안에 있는 text 를 반환
+	});
+	
+	$("h2:last").click(function(){
+		alert($(this).html());//자기자신안에 있는 html 를 반환
+	});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	button{
+		width: 100px;
+		height: 30px;
+		background-color: #2e8b57;
+		color: #ffc0cb;	
+		border-radius: 30px;	
+		margin-left: 10px;
+	}
+	
+	div img{
+		max-width: 130px;/*130px 이 넘을경우에만 적용*/
+	}
+</style>
+</head>
+<body>
+<!-- 문제:  3개의 버튼에 제목을 "꽃","사람","음식" 을 준후
+꽃을 클릭하면 div 에 꽃사진을, 사람을 클릭하면 사람 사진을, 음식을 클릭하면
+음식사진을 출력하시오
+(주의: 매번 꽃을 출력할까요? 물어보고 예를 클릭시에만 이미지 출력)-->
+
+<button type="button" onclick="buttonOne()">꽃</button>
+<button type="button" onclick="buttonTwo()">사람</button>
+<button type="button" onclick="buttonThree()">음식</button>
+<hr>
+<div id="result"></div>
+
+<script type="text/javascript">
+	var r=document.getElementById("result");
+	function buttonOne(){
+		var a=confirm("꽃 이미지를 추가할까요?");
+		if(a){
+			r.innerHTML+="<img src='../image/f9.png'>";
+		}
+	}
+	
+	function buttonTwo(){
+		var a=confirm("사람 이미지를 추가할까요?");
+		if(a){
+			r.innerHTML+="<img src='../bts/27.JPG'>";
+		}
+	}
+	
+	function buttonThree(){
+		var a=confirm("음식 이미지를 추가할까요?");
+		if(a){
+			r.innerHTML+="<img src='../food/초밥.jpg'>";
+		}
+	}
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

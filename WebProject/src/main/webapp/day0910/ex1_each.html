@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<style type="text/css">
+	.bg_0{background-color: orange;color:blue}
+	.bg_1{background-color: pink;color:black}
+	.bg_2{background-color: black;color:white}
+	.bg_3{background-color: yellow;color:purple}
+	.bg_4{background-color: gray;color:white}	
+	
+	ul li{width: 130px;}
+</style>
+</head>
+<body>
+<!-- 태그 반복할때 사용하는 each 문 -->
+<b></b><b></b><b></b><b></b><b></b>
+<script type="text/javascript">
+	//b 태그 갯수만큼 자동 반복
+	//i 는 index :0부터
+	//element 는 인덱스에 해당하는 b태그:생략가능
+	$("b").each(function(i, element) {
+		$(this).text(i);
+		//$(element).text(i);
+	});
+</script>
+<hr>
+<ul>
+	<li>apple</li>
+	<li>orange</li>
+	<li>kiwi</li>
+	<li>strawberry</li>
+	<li>manggo</li>	
+</ul>
+<script type="text/javascript">
+	$("ul li").each(function(idx){
+		$(this).addClass("bg_"+idx);
+	});
+	
+	//li 에 마우스를 올리면 뒤에 *** 를 출력해보자
+	//append 추가시와 after 로 추가시 비교
+	$("ul li").mouseover(function() {
+		//$(this).append("<b>***</b>");
+		
+		//li 태그 뒤에 b태그가 추가된다
+		$(this).after("<b>***</b>");
+	});
+	
+	//마우스가 벗어나면 b태그를 제거한다
+	$("ul li").mouseout(function() {
+		//find : 하위태그중 b태그를 찾아서 제거
+		//$(this).find("b").remove();
+		
+		//현재 이벤트가 발생하는 li태그의 다음 태그를 제거
+		$(this).next().remove();
+	});
+</script>
+<hr>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

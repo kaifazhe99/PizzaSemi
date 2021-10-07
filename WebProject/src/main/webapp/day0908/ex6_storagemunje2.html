@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+	
+	#show{
+		font-family: 'Nanum Pen Script';
+		font-size: 30pt;
+		width: 700px;
+		height: 100px;
+		line-height: 100px;
+		border: 3px groove tomato;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		//로칼 스토리지 값을 가져온다
+		var showbg=localStorage.showbg;
+		var showtg=localStorage.showtg;
+		var showfont=localStorage.showfont;
+		
+		var show=document.getElementById("show");
+		var bg1=document.getElementById("bg1");
+		var bg2=document.getElementById("bg2");
+		var selsize=document.getElementById("selsize");
+		var btn1=document.getElementById("btn1");
+				
+		if(showbg!=undefined){
+			show.style.backgroundColor=showbg;
+			bg1.value=showbg;
+		}
+		if(showtg!=undefined){
+			show.style.color=showtg;
+			bg2.value=showtg;
+		}
+		if(showfont!=undefined) {
+			show.style.fontSize=showfont;
+			selsize.value=parseInt(showfont,10);//pt단위 제거
+		}
+		
+		bg1.onchange=function(){
+			show.style.backgroundColor=this.value;
+		}
+		bg2.onchange=function(){
+			show.style.color=this.value;
+		}
+		selsize.onchange=function(){
+			show.style.fontSize=this.value+"pt";
+		}
+		
+		btn1.onclick=function(){
+			localStorage.showbg=bg1.value;
+			localStorage.showtg=bg2.value;
+			localStorage.showfont=show.style.fontSize;			
+		}
+	}
+</script>
+</head>
+<body>
+<div id="show">
+	HTML5 의 Local Storage 를 공부합시다
+</div>
+<b>배경색 변경 : </b>
+<input type="color" value="#ffccff" id="bg1">
+<br>
+<b>글자색 변경 : </b>
+<input type="color" value="#ffccff" id="bg2">
+<br>
+<b>글자크기 변경 : </b>
+<select id="selsize" style="width: 60px;">
+	<option>15</option>
+	<option>19</option>
+	<option>25</option>
+	<option>28</option>
+	<option selected>30</option>
+	<option>36</option>
+</select>
+<br><br>
+<button type="button" id="btn1">로칼 스토리지에 저장하기</button>
+</body>
+</html>
+
+
+
+
+
+
+

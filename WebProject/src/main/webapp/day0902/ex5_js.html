@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div.a{
+		width: 150px; height: 60px;
+		line-height: 60px;
+		font-size: 1.2em;
+		float: left;
+		margin-left: 5px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+<script type="text/javascript">
+	//배열 선언후 값 추가 #1
+	var flowerarr=new Array();
+	flowerarr[0]="장미꽃";
+	flowerarr[1]="안개꽃";
+	flowerarr[2]="국화꽃";
+	flowerarr[3]="채송화꽃";
+	
+	//배열 선언후 값 추가 #2
+	var colorarr=new Array();
+	colorarr.push("green");
+	colorarr.push("pink");
+	colorarr.push("yellow");
+	colorarr.push("orange");
+	
+	for(var i=0;i<flowerarr.length;i++){
+		var s="<div style='background-color:"+colorarr[i]+"'; class='a'>";
+		s+=flowerarr[i]+"</div>";
+		document.write(s);
+	}
+</script>
+</body>
+</html>
+
+
+
+
+

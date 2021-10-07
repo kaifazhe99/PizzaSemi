@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&family=Single+Day&display=swap');
+.hr{
+	clear: both;	/*float:left 속성 해제*/
+	width: 800px;	
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.btna{
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+}
+
+#view{
+	text-align: center;
+	font-size: 1.3em;
+	margin-top: 20px;
+	width: 800px;
+	height: 200px;	
+	border: 1px solid gray;	
+}
+div.lotto {
+	margin-bottom:20px;
+	float:left;
+	margin-left: 20px;
+	margin-top: 30px;
+	border: solid 3px #c71585;
+	background-color: #db7093; /*배경색*/
+	border-radius: 100px; /*모서리 둥글게*/
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	font-size: 3em;
+	font-family: 'Comic Sans MS';
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	box-shadow: 5px 5px 5px gray; /*x,y,blur,색상*/
+}

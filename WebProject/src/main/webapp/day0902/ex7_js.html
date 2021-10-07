@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var a=5;
+	var b="happy";
+	var c=true;
+	var d=4.56;
+	var e=new Array();
+	var f=new Date();
+	
+	document.write("<h2>변수의 타입 알아보기</h2>");
+	document.write("a의 type 은"+typeof(a)+"<br>");
+	document.write("b의 type 은"+typeof(b)+"<br>");
+	document.write("c의 type 은"+typeof(c)+"<br>");
+	document.write("d의 type 은"+typeof(d)+"<br>");
+	document.write("e의 type 은"+typeof(e)+"<br>");
+	document.write("f의 type 은"+typeof(f)+"<br>");
+</script>
+<hr>
+<script type="text/javascript">
+	var su1="7";
+	var su2="5";
+	var sum1=su1+su2;
+	
+	document.write(sum1+"<br>");//더하기는 문자형태로 더하는데
+	document.write(su1*su2+"<br>");//곱하기는 숫자로 자동으로 곱해진다
+	
+	//더하기도 숫자로 더해지게 하려면 숫자로 변환후 계산
+	var sum2=parseInt(su1)+parseInt(su2);
+	document.write(sum2+"<br>");
+	
+	//eval(수식):수식을 계산하여 숫자로 출력
+	var sum3=eval(su1+"+"+su2);
+	document.write(sum3+"<br>");	
+</script>
+<h2>현재 날짜와 시간 출력</h2>
+<script type="text/javascript">
+	var s=f.getFullYear()+"년 "+(f.getMonth()+1)+"월 "+f.getDate()+"일 ";
+	s+=f.getHours()+"시 "+f.getMinutes()+"분입니다";
+	document.write("<h2>"+s+"</h2>");
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
