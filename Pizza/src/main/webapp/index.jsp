@@ -13,6 +13,8 @@
 		font-family: "Black Han Sans";
 		color: red;
 	}
+	
+
 </style>
 </head>
 <% 
@@ -24,8 +26,15 @@
 	}
 %>
 <body>
+<div class="layout menu">
+	<jsp:include page="layout/menu.jsp"/>
+</div>
 <div class="layout main">
 	<jsp:include page="<%= mainPage %>"/>
 </div>
+<div class="layout foot">
+	<jsp:include page="layout/foot.jsp"/>
+</div>
+
 </body>
 </html>
