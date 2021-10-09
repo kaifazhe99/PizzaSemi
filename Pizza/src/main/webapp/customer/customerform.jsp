@@ -7,5 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
+고객의 소리
 </body>
 </html>
