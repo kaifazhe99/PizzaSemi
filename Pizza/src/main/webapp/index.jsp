@@ -26,9 +26,12 @@
 	}
 %>
 <body>
+<<<<<<< HEAD
 <div class="layout menu">
 	<jsp:include page="layout/menu.jsp"/>
 </div>
+=======
+>>>>>>> refs/remotes/origin/master
 <div class="layout main">
 	<jsp:include page="<%= mainPage %>"/>
 </div>
