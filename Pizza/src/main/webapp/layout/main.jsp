@@ -27,10 +27,6 @@ https://templatemo.com/tm-561-purple-buzz
 </head>
 
 <body>
-<<<<<<< HEAD
-
-
-
     <!-- Start Banner Hero -->
     <div class="banner-wrapper bg-light">
 
@@ -103,8 +99,6 @@ https://templatemo.com/tm-561-purple-buzz
 
     </section>
     
-
-=======
     <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">
@@ -420,7 +414,6 @@ https://templatemo.com/tm-561-purple-buzz
 
     </footer>
     <!-- End Footer -->
->>>>>>> refs/remotes/origin/master
 
 
     <!-- Bootstrap -->
