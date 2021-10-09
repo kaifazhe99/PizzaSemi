@@ -6,6 +6,7 @@
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <style type="text/css">
 	span.pizzafont{
 		font-size: 30pt;
@@ -23,12 +24,6 @@
 	}
 %>
 <body>
-<div class="layout title">
-	<jsp:include page="layout/title.jsp"/>
-</div>
-<div class="layout menu">
-	<jsp:include page="layout/menu.jsp"/>
-</div>
 <div class="layout main">
 	<jsp:include page="<%= mainPage %>"/>
 </div>
