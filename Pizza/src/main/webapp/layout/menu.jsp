@@ -1,3 +1,4 @@
+<%@page import="MemberDao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -18,6 +19,16 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="mainmenu/css/custom.css">
 </head>
+<%
+//세션으로부터 아이디를 얻는다
+String myid = (String) session.getAttribute("myid");
+String loginok=(String)session.getAttribute("loginok");
+//db로 부터 아이디에 해당하는 이름을 얻는다
+MemberDao dao = new MemberDao();
+String name = dao.getName(myid);
+%>
+
+
 <body>
    <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
@@ -49,7 +60,14 @@
                 </div>
                 <div class="navbar align-self-center d-flex">
                     <a class="nav-link text-dark" href="#"><i class='bx bx-cart bx-sm text-danger'></i>장바구니</a>
+                    <% if(loginok!=null){
+                    	%>
+                    	<a class="nav-link text-dark" href="index.jsp?main=login/loginmain.jsp"><i class='bx bx-user-circle bx-sm text-danger'></i><%=name+"님" %></a>
+                    	<button type="button" class="btn btn-danger" style="width: 100px;"
+							onclick="location.href='login/logoutaction.jsp'">로그아웃</button>
+                    <%}else{%>
                     <a class="nav-link text-dark" href="index.jsp?main=login/loginmain.jsp"><i class='bx bx-user-circle bx-sm text-danger'></i>로그인</a>
+                    <%}%>
                 </div>
             </div>
         </div>

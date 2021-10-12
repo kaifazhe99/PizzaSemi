@@ -23,8 +23,6 @@
 		<table class="table table-bordered">
 			<tr height="100">
 				<td>
-					<img src="../image2/s5.JPG" width="70" align="left">
-					<br>
 					<b>아이디를 입력해주세요</b><br>
 					<input type="text" name="id" class="form-control"
 					style="width: 100px;" autofocus="autofocus" required="required">

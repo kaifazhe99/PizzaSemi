@@ -19,7 +19,7 @@
 		
 		//아이디 입력버튼 이벤트
 		$("#btnidcheck").click(function() {
-			window.open("member/idsearch.jsp","","width=600px,height=200px,left=700px,top=100px");
+			window.open("member/idsearch.jsp","","width=300px,height=300px,left=700px,top=100px");
 		});
 		
 	});
@@ -35,44 +35,54 @@
 			f.pass2.value="";
 			return false;//action이 호출되지 않는다
 		}
+		if(f.pass.value.length<8){
+			alert("비밀번호는 8자리 이상으로 해주세요");
+			f.pass.value="";
+			f.pass2.value="";
+		}
 		return true;
 		
 	}
 </script>
 </head>
 <body>
-<form action="member/memberadd.jsp" method="post" class="form-inline" name="memberfrm"
+<h3 style="margin-left: 50px; margin-top: 50px; font-family: Black Han Sans;" >회원가입</h3>
+<form action="member/memberadd.jsp" method="post" class="form-inline" name="memberfrm" style="margin-left: 580px; margin-top: 50px;"
 	onsubmit="return check(this)">
 <table class="table table-bordered" style="width: 500px;">
-	<caption><b>회원가입</b></caption>
 	<tr>
 		<th width="100" bgcolor="#aaa">아이디</th>
 		<td>
-			<input type="text" name="id" maxlength="8" class="form-control"
-				required="required" style="width: 120px;" readonly="readonly">
+			<input type="text" name="id" maxlength="15"
+				required="required" style="width: 200px;" readonly="readonly">&nbsp;
 			<button type="button" class="btn btn-danger btn-sm" id="btnidcheck">아이디입력</button>
 		</td>
 	</tr>
 	<tr>
 		<th width="100" bgcolor="#aaa">비밀번호</th>
 		<td>
-			<input type="password" name="pass" class="form-control"
-				required="required" style="width: 120px;" placeholder="비밀번호">
-			<input type="password" name="pass2" class="form-control"
-				required="required" style="width: 120px;" placeholder="비밀번호확인">
+			<input type="password" name="pass" 
+				required="required" style="width: 200px;" placeholder="비밀번호">
+		</td>
+	</tr>
+	<tr>
+		<th width="100" bgcolor="#aaa">비밀번호 확인</th>
+		<td>
+			<input type="password" name="pass2"
+				required="required" style="width: 200px;" placeholder="비밀번호확인">
 		</td>
 	</tr>
 	<tr>
 		<th width="100" bgcolor="#aaa">이름</th>
 		<td>
-			<input type="text" name="name" class="form-control"
+			<input type="text" name="name"
 				required="required" style="width: 120px;">
 		</td>
 	</tr>
 	<tr>
 		<th width="100" bgcolor="#aaa">핸드폰</th>
 		<td>
-			<input type="text" name="hp" class="form-control"
+			<input type="text" name="hp"
 				required="required" style="width: 200px;">
 		</td>
 	</tr>
@@ -80,19 +90,19 @@
 	<tr>
 		<th width="100" bgcolor="#aaa">주소</th>
 		<td>
-			<input type="text" name="addr" class="form-control"
+			<input type="text" name="addr"
 				required="required" style="width: 400px;">
 		</td>
 	</tr>
 	<tr>
 		<th width="100" bgcolor="#aaa">이메일</th>
 		<td>
-			<input type="text" name="email1" class="form-control"
+			<input type="text" name="email1"
 				required="required" style="width: 80px;">
 			<b>@</b>
-			<input type="text" name="email2" id="email2" class="form-control"
+			<input type="text" name="email2" id="email2"
 				required="required" style="width: 150px;">
-			<select id="selemail" class="form-control">
+			<select id="selemail">
 				<option value="-">직접입력</option>
 				<option value="naver.com">네이버</option>
 				<option value="nate.com">네이트</option>
@@ -110,5 +120,6 @@
 	
 </table>
 </form>
+
 </body>
 </html>

@@ -20,7 +20,7 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member where id=?";
+		String sql="select * from pimember where id=?";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member where id=?";
+		String sql="select * from pimember where id=?";
 
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -71,7 +71,7 @@ public class MemberDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="insert into member (name,id,pass,hp,addr,email,gaipday) values (?,?,?,?,?,?,now())";
+		String sql="insert into pimember (name,id,pass,hp,addr,email,gaipday) values (?,?,?,?,?,?,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member order by num";
+		String sql="select * from pimember order by num";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -134,7 +134,7 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member where num=?";
+		String sql="select * from pimember where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -166,7 +166,7 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member where num=? and pass=?";
+		String sql="select * from pimember where num=? and pass=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -192,7 +192,7 @@ public class MemberDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="delete from member where num=?";
+		String sql="delete from pimember where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -213,7 +213,7 @@ public class MemberDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="update member set name=?,hp=?,addr=?,email=? where num=?";
+		String sql="update pimember set name=?,hp=?,addr=?,email=? where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -240,8 +240,8 @@ public class MemberDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql="select * from member where id=? and pass=?";
-		
+		String sql="select * from pimember where id=? and pass=?";
+		System.out.println("여기까지");
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);

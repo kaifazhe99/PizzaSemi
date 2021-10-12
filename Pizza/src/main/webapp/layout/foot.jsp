@@ -28,11 +28,13 @@
                 <div class="col-lg-3 col-12 align-left">
                     <a class="navbar-brand" href="index.jsp">
                         <i class='bx bx-buildings bx-sm text-light'></i>
-                        <span class="text-light h5">Purple</span> <span class="text-light h5 semi-bold-600">Buzz</span>
+                        <span class="text-light h5">피자캠프</span>
                     </a>
                     <p class="text-light my-lg-4 my-2">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut.
+                       1. 본 사진과 실제 제품과는 상이할수 있습니다.
+                    </p>
+                    <p class="text-light my-lg-4 my-2">
+                       2. 사이트의 가격과 특별매장에 가격차이가 있을수 있습니다.
                     </p>
                     <ul class="list-inline footer-icons light-300">
                         <li class="list-inline-item m-0">
@@ -112,10 +114,13 @@
                     <h2 class="h4 pb-lg-3 text-light light-300">For Client</h2>
                     <ul class="list-unstyled text-light light-300">
                         <li class="pb-2">
-                            <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1" href="tel:010-020-0340">010-020-0340</a>
+                            <i class='bx-fw bx bx-phone bx-xs'></i><a class="text-decoration-none text-light py-1">080-861-0909</a>
                         </li>
                         <li class="pb-2">
-                            <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1" href="mailto:info@company.com">info@company.com</a>
+                            <i class='bx-fw bx bx-mail-send bx-xs'></i><a class="text-decoration-none text-light py-1">PizzaCamp@pizzacamp.com</a>
+                        </li>
+                        <li class="pb-2">
+                            <i class='bx-fw bx bx-buildings bx-xs'></i><a class="text-decoration-none text-light py-1">서울 강남구 강남대로94길 20 삼오빌딩 5-9층</a>
                         </li>
                     </ul>
                 </div>
@@ -142,6 +147,8 @@
                             Distributed by <a rel="sponsored" class="text-decoration-none text-light" href="https://themewagon.com/" target="_blank"><strong>Themewagon</strong></a>
                         </p>
                     </div>
+                    
+                    
                 </div>
             </div>
         </div>
