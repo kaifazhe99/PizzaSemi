@@ -13,7 +13,9 @@
 		font-family: "Black Han Sans";
 		color: red;
 	}
-	
+	div{
+	font-family: "Noto Sans KR";
+	}
 
 </style>
 </head>
