@@ -11,7 +11,7 @@ public class DbConnect {
 	
 	static final String MYSQLDRIVER="com.mysql.jdbc.Driver";
 	
-	static final String MYSQL_URL="jdbc:mysql://localhost:3306/test";
+	static final String MYSQL_URL="jdbc:mysql://pizzamysql.cv5jhnuvwh5c.ap-northeast-2.rds.amazonaws.com:3306/pizzadb?serverTimezone=Asia/Seoul";
 	
 	//생성자
 	public DbConnect() {
@@ -27,7 +27,7 @@ public class DbConnect {
 	{
 		Connection conn=null;
 		try {
-			conn=DriverManager.getConnection(MYSQL_URL, "root", "1234");
+			conn=DriverManager.getConnection(MYSQL_URL, "admin", "admin1234");
 		} catch (SQLException e) {
 			System.out.println("Mysql 연결 실패:"+e.getMessage());
 		}

@@ -13,6 +13,7 @@
     <!-- Font CSS -->
     <link href="mainmenu/css/boxicon.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
     <!-- Load Tempalte CSS -->
     <link rel="stylesheet" href="mainmenu/css/templatemo.css">
     <!-- Custom CSS -->
@@ -34,7 +35,7 @@
                 <div class="flex-fill mx-xl-5 mb-2">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">메뉴</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=pizzamenu/menulist.jsp">메뉴</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=map/pizzamap.jsp">매장위치</a>
