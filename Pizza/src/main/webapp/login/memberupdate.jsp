@@ -12,18 +12,19 @@
 	String name=request.getParameter("name");
 	String hp=request.getParameter("hp");
 	String addr=request.getParameter("addr");
-	String email=request.getParameter("email1")+"@"+request.getParameter("email2");
 	
 	dto.setNum(num);
 	dto.setName(name);
 	dto.setAddr(addr);
-	dto.setEmail(email);
 	dto.setHp(hp);
 	
 	//dao 선언후 update 메서드 호출
 	MemberDao dao=new MemberDao();
 	dao.updateMember(dto);
 	
-	//목록으로 이동
-	response.sendRedirect("../index.jsp?main=member/memberlist.jsp");
+	String path="../index.jsp?main=login/mypageform.jsp?num="+num;
+	
+	response.sendRedirect(path);
 %>
+
+	

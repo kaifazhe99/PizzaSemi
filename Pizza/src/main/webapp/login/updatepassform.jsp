@@ -14,7 +14,7 @@
 	if(key==null){//form
 	%>
 		<div style="margin-left: 200px;">
-			<form action="member/updatepassform.jsp" method="post">
+			<form action="login/updatepassform.jsp" method="post">
 				<input type="hidden" name="num" value="<%=num%>">
 				<input type="hidden" name="key" value="yes">
 				<b>수정시 필요한 비밀번호를 입력해주세요</b>
@@ -34,7 +34,7 @@
 		MemberDao dao=new MemberDao();
 		boolean b=dao.isPassEqual(num, pass);
 		if(b){
-			String path="../index.jsp?main=member/updateform.jsp?num="+num;
+			String path="../index.jsp?main=login/updatepassform.jsp?num="+num;
 			response.sendRedirect(path);
 		}else{%>
 			<script type="text/javascript">

@@ -39,6 +39,7 @@
 			alert("비밀번호는 8자리 이상으로 해주세요");
 			f.pass.value="";
 			f.pass2.value="";
+			return false;
 		}
 		return true;
 		
