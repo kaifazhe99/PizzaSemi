@@ -12,7 +12,8 @@
 	boolean b=dao.isPassEqual(num, pass);
 	if(b){
 		dao.deleteMember(num);
-		response.sendRedirect("../index.jsp?main=member/memberlist.jsp");
+		session.removeAttribute("loginok");
+		response.sendRedirect("../index.jsp?main.jsp");
 	}else{%>
 		<script type="text/javascript">
 			alert("비밀번호가 일치하지 않습니다");
