@@ -66,6 +66,32 @@ public class MemberDao {
 		return name;
 	}
 	
+	public String getMemberNum(String id)
+	{
+		String num="";
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="select * from pimember where id=?";
+
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, id);
+			//실행
+			rs=pstmt.executeQuery();
+			if(rs.next())
+				num=rs.getString("num");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return num;
+	}
+	
 	//insert
 	public void insertMember(MemberDto dto)
 	{
@@ -221,8 +247,7 @@ public class MemberDao {
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getHp());
 			pstmt.setString(3, dto.getAddr());
-			pstmt.setString(4, dto.getEmail());
-			pstmt.setString(5, dto.getNum());
+			pstmt.setString(4, dto.getNum());
 			//실행
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -241,7 +266,6 @@ public class MemberDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		String sql="select * from pimember where id=? and pass=?";
-		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -260,31 +284,6 @@ public class MemberDao {
 		return b;
 	}
 	
-	 public String getMemberNum(String id)
-	   {
-	      String num="";
-	      Connection conn=db.getConnection();
-	      PreparedStatement pstmt=null;
-	      ResultSet rs=null;
-	      String sql="select * from pimember where id=?";
-
-	      try {
-	         pstmt=conn.prepareStatement(sql);
-	         //바인딩
-	         pstmt.setString(1, id);
-	         //실행
-	         rs=pstmt.executeQuery();
-	         if(rs.next())
-	            num=rs.getString("num");
-
-	      } catch (SQLException e) {
-	         // TODO Auto-generated catch block
-	         e.printStackTrace();
-	      }finally {
-	         db.dbClose(rs, pstmt, conn);
-	      }
-	      return num;
-	   }
 	
 }
 

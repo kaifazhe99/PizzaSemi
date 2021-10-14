@@ -14,8 +14,6 @@
 	if(loginok==null)
 	{%>
 		<jsp:include page="loginform.jsp"></jsp:include>
-	<%}else{ %>
-		<jsp:include page="logoutform.jsp"></jsp:include>
 	<%}
 %>
 </body>

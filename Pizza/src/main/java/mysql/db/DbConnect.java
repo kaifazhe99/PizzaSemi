@@ -11,7 +11,10 @@ public class DbConnect {
 	
 	static final String MYSQLDRIVER="com.mysql.jdbc.Driver";
 	
+
 	static final String MYSQL_URL="jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Seoul";
+
+
 	
 	//»ý¼ºÀÚ
 	public DbConnect() {
@@ -69,11 +72,5 @@ public class DbConnect {
 		}catch(SQLException e) {}
 	}
 }
-
-
-
-
-
-
 
 
