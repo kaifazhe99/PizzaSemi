@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="data.dao.CommentDao"%>
+<%@page import="data.dto.CommentDto"%>
 <%@page import="MemberDao.MemberDao"%>
 <%@page import="data.dto.CustomerDto"%>
 <%@page import="data.dao.CustomerDao"%>
@@ -9,6 +12,25 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function() {
+		//댓글 삭제 이벤트
+		$("a.cdel").click(function() {
+			var idx=$(this).attr("idx");
+			//alert(idx);
+			$.ajax({
+				type: "get",
+				dataType: "html",
+				url: "customer/commentdelete.jsp",
+				data: {"idx":idx},
+				success:function(){
+					//새로고침
+					location.reload();
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 <% 
@@ -32,9 +54,10 @@
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <br><br>
+<div style="height: 900px; margin-bottom: 100px;" align="center">
 <h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
 <br>
-<table class="table table-bordered" style="width: 900px;
+<table class="table table-bordered" style="width: 900px; font-family: 'IBM Plex Sans KR';
 	border-right:white;border-top:black;border-left:white;border-bottom:#e0e0e0;">
 	<% 
 	MemberDao mdao=new MemberDao();
@@ -55,30 +78,116 @@
 	</tr>
 	<tr>
 		<td style="height: 400px;">
-			<div style="width: 100%;"><%= dto.getContent() %></div>
+			<div style="width: 100%;">
+				<span style="font-family: 'IBM Plex Sans KR';"><%= dto.getContent() %></span>
+			</div>
 		</td>
 	</tr>
-</table>
-
-<div>
-<!-- 회원/비회원에게 보이는 부분 -->			
-			<button type="button" class="btn btn-sm btn-info" style="width: 80px;"
+	<tr>
+		<td>			
+		<!-- 회원/비회원에게 보이는 부분 -->			
+			<button type="button" class="btn btn-sm btn-info" style="width: 80px; color: white;"
 				onclick="location.href='index.jsp?main=customer/customerlist.jsp?currentPage=<%=currentPage%>'">목록</button>
 				
 			<% 
 				String myid=(String)session.getAttribute("myid");
 				if(loginok!=null && dto.getMyid().equals(myid)){	//로그인 상태일때만 입력폼이 보이도록 한다.
 				%>		
-					<button type="button" class="btn btn-sm btn-info" style="width: 80px;"
+					<button type="button" class="btn btn-sm btn-info" style="width: 80px; color: white;"
 				onclick="location.href='index.jsp?main=customer/customerform.jsp'">글쓰기</button>
 			
-			<button type="button" class="btn btn-sm btn-info" style="width: 80px;"
+			<button type="button" class="btn btn-sm btn-info" style="width: 80px; color: white;"
 				onclick="location.href='index.jsp?main=customer/updateform.jsp?num=<%=dto.getNum()%>'">수정</button>
 				
-			<button type="button" class="btn btn-sm btn-info" style="width: 80px;"
+			<button type="button" class="btn btn-sm btn-info" style="width: 80px; color: white;"
 				onclick="location.href='customer/customerdelete.jsp?num=<%=dto.getNum()%>&currentPage=<%= currentPage %>'">삭제</button>
 				<%}
 			%>
+		</td>
+	</tr>
+	<!-- 댓글 &  추천 -->
+			<tr>
+				<td>
+					<% 
+							//각 방명록에 달린 댓글 목록 가져오기
+							CommentDao adao=new CommentDao();
+							List<CommentDto> clist=adao.getAllComment(dto.getNum());
+					%>
+					<span class="comment" style="cursor: pointer; font-family: 'IBM Plex Sans KR'; font-weight: bold;" num="<%= dto.getNum() %>">댓글 
+						<a style="color: red;"><%= clist.size() %></a></span>
+						<div class="commentlist" style="background-color: #f9f9f9; width: 900px;
+							border: 1px solid #f6f6f6; border-radius: 5px; margin-bottom: 10px; margin-top: 5px;">						
+						<table>
+						<% 
+						for(CommentDto cdto:clist)
+						{%>
+							<tr style=" font-family: 'IBM Plex Sans KR';">
+								<td width="20" align="left">
+								</td>
+								<td>
+									<% 
+										//작성자명 얻기
+										String cname=mdao.getName(cdto.getMyid());
+									%>
+									<br>
+									<b style="font-size: 12pt; color: #626262;"><%= cname %></b>
+									<% 
+									//글 작성자와 댓글쓴 작성자가 같을 경우
+									if(dto.getMyid().equals(cdto.getMyid())){%>
+										<span style="color: red; font-size:9pt;">작성자</span>
+									<%}
+									%>
+									<br>
+									<span style="font-size: 9pt; color: gray;">
+										<%= sdf.format(cdto.getWriteday()) %>
+									</span>
+									<% 
+									//댓글 삭제는 로그인중이면서 로그인한 아이디와 같을 경우에만 삭제 아이콘 보이게 하기
+									if(loginok!=null && cdto.getMyid().equals(myid)){%>
+										<a class="cdel"
+											href="customer/commentdelete.jsp?idx=<%= cdto.getIdx() %>&currentPage=<%= currentPage %>"
+											style="font-size: 12pt; cursor: pointer; margin-left: 10px;">삭제</a>
+									<%}
+									%>
+									<br>
+									<span style="font-size: 11pt;">
+										<%= cdto.getContent().replace("\n", "<br>") %>									
+									</span>
+									<br>
+								</td>
+							</tr>
+						<%}
+						%>
+						</table>
+						</div>
+					<div class="comment">
+						<% 
+						if(loginok!=null){	//입력폼은 로그인한 경우에만 보이게 하기
+						%>								
+							<div class="commentform">
+								<form action="customer/commentinsert.jsp" method="post">
+									<input type="hidden" name="num" value="<%= dto.getNum() %>">
+									<input type="hidden" name="myid" value="<%= myid %>">
+									<input type="hidden" name="currentPage" value="<%= currentPage %>">
+									<table style="font-family: 'IBM Plex Sans KR';">
+										<tr>
+											<td width="480">
+												<textarea style="width: 470px; height: 70px;" name="content" 
+													required="required" class="form-control"></textarea>
+											</td>
+											<td>
+												<button type="submit" class="btn btn-info" style="width: 70px; height: 70px; color: white;">등록</button>
+											</td>
+										</tr>
+									</table>
+								</form>
+							</div>
+						<%}
+						%>
+					</div>
+				</td>
+			</tr>	
+</table>
 </div>
 <br><br>
 </body>

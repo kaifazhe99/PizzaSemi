@@ -1,3 +1,5 @@
+<%@page import="data.dto.CommentDto"%>
+<%@page import="data.dao.CommentDao"%>
 <%@page import="MemberDao.MemberDao"%>
 <%@page import="data.dto.CustomerDto"%>
 <%@page import="data.dao.CustomerDao"%>
@@ -10,7 +12,6 @@
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
 <style type="text/css">
 	a:link {
 	  color : black;
@@ -35,7 +36,7 @@
 
 	CustomerDao dao=new CustomerDao();
 	//페이징 처리에 필요한 변수선언
-	int perPage=5;	//한 페이지에 보여질 글의 개수
+	int perPage=10;	//한 페이지에 보여질 글의 개수
 	int totalCount;	//총 글의 개수
 	int currentPage; //현재 페이지 번호
 	int totalPage;	//총 페이지 수
@@ -78,12 +79,11 @@
 <body>
 <!-- 게시판 출력 -->
 <br><br>
-<div style="height: 400px;" align="center">
+<div style="height: 500px; margin-bottom: 100px;" align="center">
 <h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
 <br>
-
-<table class="table table-bordered" style="width: 900px; text-align: center; 
-	border-right:white;border-top:black;border-left:white;border-bottom:#e0e0e0;">
+<table class="table table-bordered" style="width: 900px; text-align: center; font-family: 'IBM Plex Sans KR'; 
+	border-right:white;border-top:black;border-left:white;border-bottom:#e0e0e0; border-collapse: collapse;">
 	<tr bgcolor="#fff">
 		<th width="70">번호</th>
 		<th width="350">제목</th>
@@ -105,13 +105,20 @@
 		{
 			String name=mdao.getName(dto.getMyid());
 		%>
-			<tr style="font-family: 'Nanum Gothic Coding';">
+			<tr>
 				<td align="center"><%= no-- %></td>
 				<td>
-					<a style="color: black;" 
+					<% 
+						//각 방명록에 달린 댓글 목록 가져오기
+						CommentDao adao=new CommentDao();
+						List<CommentDto> clist=adao.getAllComment(dto.getNum());
+					%>
+					<span style="color: black;" 
 						href="index.jsp?main=customer/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">
-					<%= dto.getSubject() %>
-					</a>
+					<%= dto.getSubject() %>&nbsp;
+					<a style="color: red; font-size: 10pt; font-weight: bold;"
+						href="index.jsp?main=customer/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">[<%= clist.size() %>]</a>
+					</span>
 				</td>
 				<td><%= name %></td>
 				<td><%= sdf.format(dto.getWriteday()) %></td>
@@ -126,7 +133,7 @@
 	if(loginok!=null){	//로그인 상태일때만 입력폼이 보이도록 한다.
 	%>		
 		<button type="button" class="btn btn-danger btn-sm" 
-		style="color:white; width: 90px; margin-left: 20px; font-family: 'Nanum Gothic Coding:wght@800';"
+		style="color:white; width: 90px; margin-left: 20px; font-family: 'Nanum Gothic:wght@800;';"
 		onclick="location.href='index.jsp?main=customer/customerform.jsp'">
 		글쓰기</button>
 	<%}
