@@ -1,3 +1,4 @@
+<%@page import="MemberDao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -20,6 +21,15 @@
     <link rel="stylesheet" href="mainmenu/css/custom.css">
 </head>
 <body>
+<%
+//세션으로부터 아이디를 얻는다
+String myid = (String) session.getAttribute("myid");
+String loginok=(String)session.getAttribute("loginok");
+
+//db로 부터 아이디에 해당하는 이름을 얻는다
+MemberDao mdao = new MemberDao();
+String num= mdao.getMemberNum(myid);
+%>
    <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow">
         <div class="container d-flex justify-content-between align-items-center">

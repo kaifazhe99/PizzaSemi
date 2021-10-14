@@ -40,7 +40,7 @@
 	.btnadd{
 	font-family: "Noto Sans KR";
 	}
-
+	
 
 
 </style>
@@ -51,24 +51,35 @@ PizzamenuDao dao=new PizzamenuDao();
 List<PizzamenuDto> list=dao.getAllDatas();
 
 
-//로그인 상태 확인후 입력폼 나타내기
+//세션으로부터 아이디를 얻는다
+String myid = (String) session.getAttribute("myid");
 String loginok=(String)session.getAttribute("loginok");
+
+
+MemberDao mdao = new MemberDao();
+String num= mdao.getMemberNum(myid);
 %>
+
 <body>
     <!-- Start Banner Hero -->
-    <div id="work_banner""class="banner-wrapper bg-light w-100 py-5"
+    <div id="work_banner" class="banner-wrapper bg-light w-100 py-5"
     style="background-image: url('pizzaimg/cookpizza.png');">
         <div class="banner-vertical-center-work container text-light d-flex justify-content-center align-items-center py-5 p-0">
           
             <div class="banner-content col-lg-8 col-12 m-lg-auto text-center">
+              
+              <%
+             if(loginok!=null && myid.equals("admin")){%>
                 <h1 class="banner-heading h2 display-3 pb-5 typo-space-line-center">메뉴 관리</h1>
-                <h3 class="h4 pb-2">관리자 페이지만 보이게</h3>
-                <p class="banner-body pb-2">
-                메뉴 등록 및 수정,삭제
-                </p><br>
+                <h3 class="h4 pb-2">메뉴 등록</h3>
+               <br>
                 <button type="submit" class="btn rounded-pill btn-light px-4 me-4 btnadd" onclick="location.href='index.jsp?main=pizzamenu/menuaddform.jsp'"
                 >메뉴 등록</button>
-                <button type="submit" class="btn rounded-pill btn-danger text-light px-4 btnupdel" href="#">관리자 로그아웃</button>
+                <button type="submit" class="btn rounded-pill btn-danger text-light px-4 btnupdel" onclick="location.href='pizzamenu/poutaction.jsp'">관리자 로그아웃</button>
+             <%}else{%>
+             <h1 class="banner-heading h2 display-3 pb-5 typo-space-line-center">메뉴</h1>
+             
+                <%}%>
            </div>
            
         </div>
@@ -78,7 +89,7 @@ String loginok=(String)session.getAttribute("loginok");
 <br>
     <!-- Start Our Work -->
         <div class="">
-            <div class="filter-btns shadow-md rounded-pill text-center col-auto">
+            <div class="text-center col-auto">
             	<a class="filter-btn btn rounded-pill btn-outline-danger border-0 m-md-2 px-md-4">전체메뉴</a>
                 <a class="filter-btn btn rounded-pill btn-outline-danger border-0 m-md-2 px-md-4">피자</a>
                 <a class="filter-btn btn rounded-pill btn-outline-danger border-0 m-md-2 px-md-4">사이드메뉴</a>
@@ -88,28 +99,23 @@ String loginok=(String)session.getAttribute("loginok");
         <!-- 메뉴출력 -->
 
  <section class="container overflow-hidden py-5">
-        <div class="row gx-5 gx-sm-4 gx-lg-5 gy-lg-5 gy-4 pb-4 projects">
+        <div class="row gx-5 gx-sm-4 gx-lg-5 gy-lg-5 gy-4 pb-4 projects" >
 		<%
-    
         for(PizzamenuDto dto:list){%>
-              <a href="" class="col-sm-6 col-lg-4 text-decoration-none project marketing social business">
-                <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
-                    <img class="card-img-top photo" src="save/<%=dto.getPhotoname()%>" alt="...">
+              <a class="col-sm-6 col-lg-4 text-decoration-none project marketing social business">
+                <div class="service-work card mb-5 mx-5 m-sm-0">
+                    <img class="card-img-top photo" src="save/<%=dto.getPhotoname()%>">
                     <div class="card-body">
                         <h5 class="card-title text-dark"><%=dto.getPname()%></h5>
                         <h5 class="card-title text-dark"><%=dto.getPrice()%></h5>
-                        <p class="card-text text-dark">
-                           <%=dto.getContent()%>
-                        </p>
+      
                         <span class="text-decoration-none text-primary">
-                              주문하기<i class='bx bxs-hand-right ms-1'></i>
+                             <i class='bx bxs-hand-right ms-1' style="font-size: 1.1em;"
+                             onclick="location.href='index.jsp?main=pizzamenu/menudetail.jsp?num=<%=dto.getNum()%>'">detail</i>
                           </span>
                     </div>
                 </div>
-
-                <button type="submit" class="btn rounded-pill btn-light px-4 btnpupdate" style="margin-top:10px;">수정</button>
-                <button type="submit" class="btn rounded-pill btn-light px-4 btnpdelete" style="margin-top:10px;">삭제</button>
-
+ 			
             </a>
 	<%}
         %>

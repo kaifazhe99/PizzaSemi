@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>피자캠프</title>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <style type="text/css">
@@ -32,7 +32,7 @@
 	<jsp:include page="layout/menu.jsp"/>
 </div>
 <div class="layout main">
-	<jsp:include page="<%= mainPage %>"/>
+	<jsp:include page="<%=mainPage%>"/>
 </div>
 <div class="layout foot">
 	<jsp:include page="layout/foot.jsp"/>
