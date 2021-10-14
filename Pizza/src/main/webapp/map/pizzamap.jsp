@@ -17,7 +17,7 @@
 	}
 	a:hover {
 	  color : blue;
-	  text-decoration: underline;
+	  text-decoration: none;
 	}
 	a:active {
 	  color : green;
@@ -26,9 +26,8 @@
 </style>
 </head>
 <body>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a823da81f8ed9288a1502f72c9578112&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=026b1a7a94789686a0d66b4defd33a95&libraries=services"></script>
 <div class="inner">
-<br>
       <h3 class="pageTit" id="pageTit" align="center"><em>매장위치</em></h3>
       
       <div class="atdressCont atdressSearch">
