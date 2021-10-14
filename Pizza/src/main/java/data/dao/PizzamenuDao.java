@@ -16,15 +16,16 @@ public class PizzamenuDao {
 		public void insertPizza(PizzamenuDto dto) {
 			Connection conn=db.getConnection();
 			PreparedStatement pstmt=null;
-			String sql="insert into pizzamenu (pname,price,content,photoname) values (?,?,?,?)";
+			String sql="insert into pizzamenu (myid,pname,price,content,photoname) values (?,?,?,?,?)";
 		
 			try {
 				pstmt=conn.prepareStatement(sql);
 				//바인딩
-				pstmt.setString(1, dto.getPname());
-				pstmt.setString(2, dto.getPrice());
-				pstmt.setString(3, dto.getContent());
-				pstmt.setString(4, dto.getPhotoname());
+				pstmt.setString(1, dto.getMyid());
+				pstmt.setString(2, dto.getPname());
+				pstmt.setString(3, dto.getPrice());
+				pstmt.setString(4, dto.getContent());
+				pstmt.setString(5, dto.getPhotoname());
 				//실행
 				pstmt.execute();
 			} catch (SQLException e) {
@@ -63,6 +64,89 @@ public class PizzamenuDao {
 			}
 			return list;
 		}
+		
+		//num 에 해당하는 dto 반환
+				public PizzamenuDto getData(String num)
+				{
+					PizzamenuDto dto=new PizzamenuDto();
+					Connection conn=db.getConnection();
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					String sql="select * from pizzamenu where num=?";
+
+					try {
+						pstmt=conn.prepareStatement(sql);
+						//바인딩
+						pstmt.setString(1, num);
+						rs=pstmt.executeQuery();
+						if(rs.next())
+						{				
+							dto.setNum(rs.getString("num"));
+							dto.setMyid(rs.getString("myid"));
+							dto.setPname(rs.getString("pname"));
+							dto.setPrice(rs.getString("price"));
+							dto.setContent(rs.getString("content"));
+							dto.setPhotoname(rs.getString("photoname"));
+						}			
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally {
+						db.dbClose(rs,pstmt, conn);
+					}
+					return dto;
+				}
+				
+		//수정
+		public void updatePizzamenu(PizzamenuDto dto)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			String sql="update pizzamenu set pname=?,price=?,content=?,photoname=? where num=?";
+
+			try {
+				pstmt=conn.prepareStatement(sql);
+				//바인딩
+				pstmt.setString(1, dto.getPname());
+				pstmt.setString(2, dto.getPrice());
+				pstmt.setString(3, dto.getContent());
+				pstmt.setString(4, dto.getPhotoname());
+				pstmt.setString(5, dto.getNum());
+				//실행
+				pstmt.execute();
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
+		
+		//삭제
+		public void deletePizzamenu(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			String sql="delete from pizzamenu where num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+					//바인딩
+				pstmt.setString(1, num);
+	
+				//실행
+				pstmt.execute();
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					db.dbClose(pstmt, conn);
+				}
+			}
+		
+		
 
 }
 

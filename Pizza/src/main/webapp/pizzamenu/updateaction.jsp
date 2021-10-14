@@ -2,8 +2,8 @@
 <%@page import="data.dto.PizzamenuDto"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 //세션으로부터 db 에 저장할 아이디 얻기
 	String myid=(String)session.getAttribute("myid");
@@ -18,27 +18,33 @@
 		multi=new MultipartRequest(request,realPath,uploadSize,"utf-8",
 				new DefaultFileRenamePolicy());
 		//(주의)request 가 아닌 multi 변수로 모든 폼데이타를 읽어야한다
+		String num=multi.getParameter("num");
+		
+		
+		
+		PizzamenuDao dao=new PizzamenuDao();
+		String gu_photoname=dao.getData(num).getPhotoname();
+		
 		String pname=multi.getParameter("pname");
 		String price=multi.getParameter("price");
 		String content=multi.getParameter("content");
-		String photoname=multi.getFilesystemName("photo");//실제 업로드된 파일명
+		String photoname=multi.getFilesystemName("photo");
+		
 		//dto 에 저장
 		PizzamenuDto dto=new PizzamenuDto();
+		dto.setNum(num);
 		dto.setMyid(myid);
 		dto.setPname(pname);
 		dto.setPrice(price);
 		dto.setContent(content);
-		dto.setPhotoname(photoname);
+		dto.setPhotoname(photoname==null?gu_photoname:photoname);
 		
-		//dao 선언
-		PizzamenuDao dao=new PizzamenuDao();
-		//insert
-		dao.insertPizza(dto);
+		//update
+		dao.updatePizzamenu(dto);
 		//방명록목록으로 이동
-		response.sendRedirect("../index.jsp?main=pizzamenu/menuaddform.jsp?");
+		String path="../index.jsp?main=pizzamenu/menulist.jsp";
+		response.sendRedirect(path);
 	}catch(Exception e){
 		System.out.println("업로드오류:"+e.getMessage());
 	}
-
-
-%>
+ %>

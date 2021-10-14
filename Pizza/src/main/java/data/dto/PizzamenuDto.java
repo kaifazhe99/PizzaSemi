@@ -2,6 +2,7 @@ package data.dto;
 
 public class PizzamenuDto {
 	private String num;
+	private String myid;
 	private String pname;
 	private String price;
 	private String content;
@@ -36,6 +37,14 @@ public class PizzamenuDto {
 	public void setPhotoname(String photoname) {
 		this.photoname = photoname;
 	}
+	public String getMyid() {
+		return myid;
+	}
+	public void setMyid(String myid) {
+		this.myid = myid;
+	}
+
+	
 	
 	
 }

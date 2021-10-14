@@ -153,7 +153,7 @@ public class MemberDao {
 		return list;
 	}
 	
-	//회원 dto 반화
+	//회원 dto 반환
 	public MemberDto getMember(String num)
 	{
 		MemberDto dto=new MemberDto();
@@ -239,7 +239,7 @@ public class MemberDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="update pimember set name=?,hp=?,addr=? where num=?";
+		String sql="update pimember set name=?,hp=?,addr=?,email=? where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -283,6 +283,7 @@ public class MemberDao {
 		}
 		return b;
 	}
+	
 	
 }
 
