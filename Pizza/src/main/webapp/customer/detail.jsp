@@ -60,7 +60,7 @@
 <table class="table table-bordered" style="width: 900px; font-family: 'IBM Plex Sans KR';
 	border-right:white;border-top:black;border-left:white;border-bottom:#e0e0e0;">
 	<% 
-	MemberDao mdao=new MemberDao();
+		MemberDao mdao=new MemberDao();
 		String name=mdao.getName(dto.getMyid());
 	%>
 	<tr>
