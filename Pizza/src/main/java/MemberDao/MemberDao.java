@@ -13,7 +13,7 @@ import mysql.db.DbConnect;
 public class MemberDao {
 	DbConnect db=new DbConnect();
 	
-	//¾ÆÀÌµð Ã¼Å©
+	//ï¿½ï¿½ï¿½Ìµï¿½ Ã¼Å©
 	public boolean isIdCheck(String id)
 	{
 		boolean isid=false;
@@ -24,11 +24,11 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, id);
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			rs=pstmt.executeQuery();
-			if(rs.next())//ÇØ´ç¾ÆÀÌµð Á¸ÀçÇÒ °æ¿ì true
+			if(rs.next())//ï¿½Ø´ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ true
 				isid=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,7 +39,7 @@ public class MemberDao {
 		return isid;
 	}
 
-	//¾ÆÀÌµð¿¡ ´ëÇÑ ÀÌ¸§ ¹ÝÈ¯
+	//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½È¯
 	public String getName(String id)
 	{
 		String name="";
@@ -50,9 +50,9 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, id);
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			rs=pstmt.executeQuery();
 			if(rs.next())
 				name=rs.getString("name");
@@ -76,9 +76,9 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, id);
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			rs=pstmt.executeQuery();
 			if(rs.next())
 				num=rs.getString("num");
@@ -101,14 +101,14 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
 			pstmt.setString(3, dto.getPass());
 			pstmt.setString(4, dto.getHp());
 			pstmt.setString(5, dto.getAddr());
 			pstmt.setString(6, dto.getEmail());
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -118,7 +118,7 @@ public class MemberDao {
 		}
 	}
 	
-	//È¸¿ø ¸ñ·Ï
+	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public List<MemberDto> getAllMembers()
 	{
 		List<MemberDto> list=new ArrayList<MemberDto>();
@@ -140,6 +140,7 @@ public class MemberDao {
 				dto.setAddr(rs.getString("addr"));
 				dto.setGaipday(rs.getTimestamp("gaipday"));
 				dto.setEmail(rs.getString("email"));
+				dto.setPass(rs.getString("pass"));
 				
 				list.add(dto);
 				
@@ -153,7 +154,7 @@ public class MemberDao {
 		return list;
 	}
 	
-	//È¸¿ø dto ¹ÝÈ¯
+	//È¸ï¿½ï¿½ dto ï¿½ï¿½È¯
 	public MemberDto getMember(String num)
 	{
 		MemberDto dto=new MemberDto();
@@ -185,7 +186,7 @@ public class MemberDao {
 		return dto;
 	}
 	
-	//ºñ¹Ð¹øÈ£ Ã¼Å©
+	//ï¿½ï¿½Ð¹ï¿½È£ Ã¼Å©
 	public boolean isPassEqual(String num,String pass)
 	{
 		boolean b=false;
@@ -213,7 +214,7 @@ public class MemberDao {
 	}
 	
 	
-	//»èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½
 	public void deleteMember(String num)
 	{
 		Connection conn=db.getConnection();
@@ -222,9 +223,9 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, num);
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -234,7 +235,7 @@ public class MemberDao {
 		}
 	}
 	
-	//¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½
 	public void updateMember(MemberDto dto)
 	{
 		Connection conn=db.getConnection();
@@ -243,12 +244,12 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//¹ÙÀÎµù
+			//ï¿½ï¿½ï¿½Îµï¿½
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getHp());
 			pstmt.setString(3, dto.getAddr());
 			pstmt.setString(4, dto.getNum());
-			//½ÇÇà
+			//ï¿½ï¿½ï¿½ï¿½
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -258,7 +259,7 @@ public class MemberDao {
 		}
 	}
 	
-	//¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£ Ã¼Å©
+	//ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ Ã¼Å©
 	public boolean isIdPass(String id,String pass)
 	{
 		boolean b=false;

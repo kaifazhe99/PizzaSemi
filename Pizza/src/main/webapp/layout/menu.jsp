@@ -57,7 +57,7 @@ String num= dao.getMemberNum(myid);
                             <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=map/pizzamap.jsp">매장위치</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="">이벤트</a>
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=Event/eventmain.jsp">이벤트</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=customer/customerlist.jsp">커뮤니티</a>
@@ -74,6 +74,15 @@ String num= dao.getMemberNum(myid);
                     <%}else{%>
                     <a class="nav-link text-dark" href="index.jsp?main=login/loginmain.jsp"><i class='bx bx-user-circle bx-sm text-danger'></i>로그인</a>
                     <%}%>
+                    <!-- 관리자일때만 메뉴확인가능 -->
+					<% 
+						if(loginok!= null && myid.equals("admin")){ 
+					%>	
+						<input type="button" value="회원전체목록(관리자용)" onclick="location.href='Manage/css-table-17/index.jsp'" 
+						style=" margin-left: 30px;"  class="btn"> 
+					<%
+					}
+					%>
                 </div>
             </div>
         </div>

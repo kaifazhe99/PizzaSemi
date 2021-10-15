@@ -16,13 +16,13 @@ public class DbConnect {
 
 
 	
-	//»ý¼ºÀÚ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public DbConnect() {
 		// TODO Auto-generated constructor stub
 		try {
 			Class.forName(MYSQLDRIVER);
 		} catch (ClassNotFoundException e) {
-			System.out.println("MySql µå¶óÀÌ¹ö ½ÇÆÐ:"+e.getMessage());
+			System.out.println("MySql ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½:"+e.getMessage());
 		}
 	}
 	
@@ -32,13 +32,13 @@ public class DbConnect {
 		try {
 			conn=DriverManager.getConnection(MYSQL_URL, "root", "1234");
 		} catch (SQLException e) {
-			System.out.println("Mysql ¿¬°á ½ÇÆÐ:"+e.getMessage());
+			System.out.println("Mysql ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:"+e.getMessage());
 		}
 		return conn;
 	}
 	
 	
-	//close ¸Þ¼­µå´Â ÃÑ 4°³, ¿À¹ö·Îµù ¸Þ¼­µå
+	//close ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 4ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	public void dbClose(ResultSet rs,Statement stmt,Connection conn)
 	{
 		try {
