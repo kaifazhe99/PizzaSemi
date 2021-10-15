@@ -96,24 +96,7 @@ https://templatemo.com/tm-561-purple-buzz
             </p>
         </div>
 
-        <div class="service-tag py-5 bg-warning">
-            <div class="col-md-12">
-                <ul class="nav d-flex justify-content-center">
-                    <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-danger active shadow rounded-pill text-light px-4 light-300" href="#" data-filter=".project">All</a>
-                    </li>
-                    <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".graphic">Graphics</a>
-                    </li>
-                    <li class="filter-btn nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".ui">UI/UX</a>
-                    </li>
-                    <li class="nav-item mx-lg-4">
-                        <a class="filter-btn nav-link btn-outline-danger rounded-pill text-light px-4 light-300" href="#" data-filter=".branding">Branding</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        
 
     </section>
 
