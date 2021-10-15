@@ -31,7 +31,7 @@
       <h2 class="pageTit" id="pageTit" align="center" style="font-family: 'Black Han Sans';">매장위치</h2><br>
       <hr style=" border-top: 2px #111; opacity: 100; width: 900px; text-align: center; margin: 0px auto;">
       <br>
-      <div class="atdressCont atdressSearch" style="margin-left: 310px;">
+      <div class="atdressCont atdressSearch" align="center"">
         <h4 style="color: tomato; font-family: 'Jua';">강남본점</h4>
       </div>
 <div class="inner" style="height: 700px; margin-bottom: 250px;" align="center">      

@@ -5,16 +5,16 @@
 <% 
 	request.setCharacterEncoding("utf-8");
 
+	String currentPage=request.getParameter("currentPage");
+	String num=request.getParameter("num");
+	
 	CommentDto dto=new CommentDto();
-	dto.setNum(request.getParameter("num"));
+	dto.setNum(num);
 	dto.setMyid(request.getParameter("myid"));
 	dto.setContent(request.getParameter("content"));
-	
-	String currentPage=request.getParameter("currentPage");
 	
 	CommentDao dao=new CommentDao();
 	dao.insertComment(dto);
 	
-	String path="../index.jsp?main=customer/detail.jsp?currentPage="+currentPage;
-	response.sendRedirect(path);
+	response.sendRedirect("../index.jsp?main=customer/detail.jsp?num="+num+"&currentPage="+currentPage);
 %>

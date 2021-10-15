@@ -9,8 +9,4 @@
 	CustomerDao dao=new CustomerDao();
 	
 	dao.deleteCustomer(num);
-	
-	String realPath=getServletContext().getRealPath("/save");
-	String cl="../index.jsp?main=customer/customerlist.jsp?currentPage="+currentPage;
-	response.sendRedirect(cl);
 %>

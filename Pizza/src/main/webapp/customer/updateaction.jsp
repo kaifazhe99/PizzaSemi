@@ -5,7 +5,8 @@
 <% 
 	//한글 엔코딩
 	request.setCharacterEncoding("utf-8");
-
+	
+	String currentPage=request.getParameter("currentPage");
 	//데이터 읽어서 dto 에 넣기
 	CustomerDto dto=new CustomerDto();
 	String num=request.getParameter("num");
@@ -21,5 +22,5 @@
 	CustomerDao dao=new CustomerDao();
 	dao.updateCustomer(dto);
 	
-	response.sendRedirect("../index.jsp?main=customer/customerlist.jsp");
+	response.sendRedirect("../index.jsp?main=customer/detail.jsp?num="+num+"&currentPage="+currentPage);
 %>

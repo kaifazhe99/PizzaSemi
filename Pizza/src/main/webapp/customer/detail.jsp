@@ -15,24 +15,49 @@
 <script type="text/javascript">
 	$(function() {
 		//댓글 삭제 이벤트
-		$("a.cdel").click(function() {
+		$("span.cdel").click(function() {
 			var idx=$(this).attr("idx");
-			//alert(idx);
-			$.ajax({
-				type: "get",
-				dataType: "html",
-				url: "customer/commentdelete.jsp",
-				data: {"idx":idx},
-				success:function(){
-					//새로고침
-					location.reload();
-				}
-			});
+			if(confirm('정말 삭제하시겠습니까?')){
+				//alert(idx);
+				$.ajax({
+					type: "get",
+					dataType: "html",
+					url: "customer/commentdelete.jsp",
+					data: {"idx":idx},
+					success:function(){
+						//새로고침
+						location.reload();
+					}
+				});
+			}else{
+			return false;
+			}
+		});
+		
+		$("button.delbtn").click(function() {
+			var num=$(this).attr("num");
+			if(confirm('정말 삭제하시겠습니까?')){				
+				//alert(num);
+				$.ajax({
+					type: "get",
+					dataType: "html",
+					url: "customer/customerdelete.jsp",
+					data: {"num":num},
+					success:function(){
+						console.log("delete");
+						//새로고침
+						location.href='index.jsp?main=customer/customerlist.jsp';
+					}
+				});
+				
+			}else{
+				return false;
+			}
+			
 		});
 	});
 </script>
 </head>
-<body>
 	<% 
 	String loginok=(String)session.getAttribute("loginok");
 
@@ -53,6 +78,7 @@
 	
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
+<body>
 	<br>
 	<br>
 	<div style="height: 900px; margin-bottom: 100px;" align="center">
@@ -97,11 +123,10 @@
 
 					<button type="button" class="btn btn-sm btn-info"
 						style="width: 80px; color: white;"
-						onclick="location.href='index.jsp?main=customer/updateform.jsp?num=<%=dto.getNum()%>'">수정</button>
+						onclick="location.href='index.jsp?main=customer/updateform.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>'">수정</button>
 
-					<button type="button" class="btn btn-sm btn-info"
-						style="width: 80px; color: white;"
-						onclick="location.href='customer/customerdelete.jsp?num=<%=dto.getNum()%>&currentPage=<%= currentPage %>'">삭제</button>
+					<button type="button" class="delbtn btn btn-sm btn-info" style="width: 80px; color: white;"
+					 	num="<%= dto.getNum() %>">삭제</button>
 					<%}
 			%>
 				</td>
@@ -137,10 +162,9 @@
 										<%= sdf.format(cdto.getWriteday()) %>
 								</span> <% 
 									//댓글 삭제는 로그인중이면서 로그인한 아이디와 같을 경우에만 삭제 아이콘 보이게 하기
-									if(loginok!=null && cdto.getMyid().equals(myid)){%> <a
-									class="cdel"
-									href="customer/commentdelete.jsp?idx=<%= cdto.getIdx() %>&currentPage=<%= currentPage %>"
-									style="font-size: 12pt; cursor: pointer; margin-left: 10px;">삭제</a>
+									if(loginok!=null && cdto.getMyid().equals(myid)){%> 
+									<span class="cdel" idx="<%= cdto.getIdx() %>"
+									style="font-size: 10pt; cursor: pointer; margin-left: 10px; color: #626262;">삭제</span>
 									<%}
 									%> <br> <span style="font-size: 11pt;"> <%= cdto.getContent().replace("\n", "<br>") %>
 								</span> <br>
@@ -162,7 +186,7 @@
 								<table style="font-family: 'IBM Plex Sans KR';">
 									<tr>
 										<td width="480"><textarea
-												style="width: 470px; height: 70px;" name="content"
+												style="width: 830px; height: 70px;" name="content"
 												required="required" class="form-control"></textarea></td>
 										<td>
 											<button type="submit" class="btn btn-info"
@@ -179,7 +203,6 @@
 			</tr>
 		</table>
 	</div>
-	<br>
-	<br>
+	<br><br><br>
 </body>
 </html>

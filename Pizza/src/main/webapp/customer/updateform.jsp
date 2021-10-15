@@ -1,14 +1,16 @@
 <%@page import="data.dto.CustomerDto"%>
 <%@page import="data.dao.CustomerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>	
+<link
+	href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <%
 	//프로젝트의 경로
 	String root=request.getContextPath();
@@ -17,7 +19,8 @@
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
 
-<script type="text/javascript" src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
+<script type="text/javascript"
+	src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
 	charset="utf-8"></script>
 </head>
 <% 
@@ -33,46 +36,44 @@
 	CustomerDto dto=dao.getData(num);
 %>
 <body>
-<form action="customer/updateaction.jsp" method="post" class="form-inline">
-<input type="hidden" name="num" value="<%= num %>">
-<br>
-	<h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
-	<hr>
-	<table class="table table-bordered" style="width: 100%; border-top-color: white; 
-		border-bottom-color: white; border-right-color: white;">
-		<tr>
-			<th bgcolor="orange" width="100" valign="middle" style="text-align: center;">제  목</th>
-			<td align="left">
-				<input type="text" name="subject" class="form-control"
-					required="required" style="width: 100%;" value="<%= dto.getSubject() %>">
-			</td>
-		</tr>
-		<tr >
-			<td colspan="2">
-				<textarea name="content" id="content"		
-					required="required"			
-					style="width: 100%;height: 400px;display: none;"><%= dto.getContent() %></textarea>		
-			
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2" align="center">
-				<button type="submit" class="btn btn-primary"
-					style="width: 120px;"
-					onclick="location.href='index.jsp?main=customer/detail.jsp'">수정</button>
-				
-				<button type="button" class="btn btn-primary"
-					style="width: 120px;"
-					onclick="location.href='index.jsp?main=customer/detail.jsp?num=<%= dto.getNum() %>&currentPage=<%= currentPage %>'">취소</button>
-			</td>
-		</tr>
-		
-	</table>
-	</div>   
-</form>
+	<form action="customer/updateaction.jsp" method="post"
+		class="form-inline">
+		<input type="hidden" name="num" value="<%=num %>">
+		<input type="hidden" name="currentPage" value="<%=currentPage%>"> <br>
+		<h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
+		<hr>
+		<table class="table table-bordered"
+			style="width: 100%; border-top-color: white; border-bottom-color: white; border-right-color: white;">
+			<tr>
+				<th bgcolor="orange" width="100" valign="middle"
+					style="text-align: center;">제 목</th>
+				<td align="left"><input type="text" name="subject"
+					class="form-control" required="required" style="width: 100%;"
+					value="<%= dto.getSubject() %>"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><textarea name="content" id="content"
+						required="required"
+						style="width: 100%; height: 400px; display: none;"><%= dto.getContent() %></textarea>
 
-<!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
-<script type="text/javascript">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit" class="btn btn-primary" style="width: 120px;"
+						onclick="submitContents(this)">수정</button>
+
+					<button type="button" class="btn btn-primary" style="width: 120px;"
+						onclick="location.href='index.jsp?main=customer/detail.jsp?num=<%= dto.getNum() %>&currentPage=<%= currentPage %>'">취소</button>
+				</td>
+			</tr>
+
+		</table>
+		</div>
+	</form>
+
+	<!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
+	<script type="text/javascript">
 var oEditors = [];
 
 nhn.husky.EZCreator.createInIFrame({

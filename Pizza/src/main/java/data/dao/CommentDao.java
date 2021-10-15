@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Vector;
 
 import data.dto.CommentDto;
+import data.dto.CustomerDto;
 import mysql.db.DbConnect;
 
 public class CommentDao {
