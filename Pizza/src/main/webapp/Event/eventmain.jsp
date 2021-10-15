@@ -119,7 +119,7 @@
 </head>
 
 <body>
-<div>
+<div >
  <span class="list">
 	<h2 style=" margin-bottom: 5px; margin-top: 5px;"><b>Event</b></h2>
 	<ul style=" padding-left: 20px;">	
@@ -132,15 +132,18 @@
 
 
 	
-<div id="eventimg">
+<div id="eventimg" style="padding-left: 125px;">
 	<img class="event" id="1" style="top:20px; left:20px; " src="Event/event1/1.jpg"/>
 	<img class="event" id="2" style="top:20px; left:625px;" src="Event/event1/2.jpg"/>
 	<img class="event" id="3" style="top:275px; left:625px;"  src="Event/event1/3.jpg"/>
 	<img class="event" id="4" style="top:275px; left:20px;" src="Event/event1/4.jpg"/>
 </div>
-<div id="newimg">
+<br>
+<div id="newimg" style="
+    padding-left: 600px;
+">
 <figure >
-   <img src="Event/pizzaimg/hotchicken.jpg" style="width: 300px;">
+   <img src="Event/pizzaimg/hotchicken.jpg" style="width: 300px; ">
    <figcaption>
       <div>
          <h3><b>캐롤라이나 핫치킨</b></h3><br>세상에서 가장 매운 고추 '캐롤라이나 리퍼'로<br>
@@ -150,7 +153,7 @@
 </figure>
 <figure></figure>
    <img src="Event/pizzaimg/superdelux.jpg" style="width: 300px;">
-   <figcaption> <div>
+   	<figcaption> <div>
          <h3><b>슈퍼디럭스</b></h3><br>쇠고기, 페퍼로니, 햄, 버섯, 피망, 양파, 올리브 등<br>
 가장 많은 토핑이 들어가 풍부한 맛을 내는 피자!
       </div>

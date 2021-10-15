@@ -123,11 +123,11 @@ https://templatemo.com/tm-561-purple-buzz
             <!-- Start Recent Work -->
             <div class="col-xl-3 col-md-4 col-sm-6 project ui branding">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="service card-img" src="./mainmenu/img/services-01.jpg" alt="Card image">
+                    <img class="service card-img" src="pizzaimg/bulgogi.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">UI/UX design</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">불고기피자</span>
+                            <p class="card-text">피자도우와 치즈만으로 승부한다! 토마토 소스와 모차렐라 치즈를 가득 넣은 피자.</p>
                         </div>
                     </div>
                 </a>
@@ -136,11 +136,11 @@ https://templatemo.com/tm-561-purple-buzz
             <!-- Start Recent Work -->
             <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-02.jpg" alt="Card image">
+                    <img class="card-img" src="pizzaimg/cheese.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Social Media</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">치즈피자</span>
+                            <p class="card-text">피자도우와 치즈만으로 승부한다! 토마토 소스와 모차렐라 치즈를 가득 넣은 피자.</p>
                         </div>
                     </div>
                 </a>
@@ -149,11 +149,11 @@ https://templatemo.com/tm-561-purple-buzz
             <!-- Start Recent Work -->
             <div class="col-xl-3 col-md-4 col-sm-6 project branding">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-03.jpg" alt="Card image">
+                    <img class="card-img" src="pizzaimg/newyororigin.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Marketing</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">뉴욕 오리진</span>
+                            <p class="card-text">미국 피자 전문점은 뉴욕에서 최초로 오픈! 미국 피자 오리진 스타일을 그대로 담은 피자!</p>
                         </div>
                     </div>
                 </a>
@@ -162,11 +162,11 @@ https://templatemo.com/tm-561-purple-buzz
             <!-- Start Recent Work -->
             <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
-                    <img class="card-img" src="./mainmenu/img/services-04.jpg" alt="Card image">
+                    <img class="card-img" src="pizzaimg/hawaiian.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="service-work-content text-left text-light">
-                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">Graphic</span>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                            <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">하와이안피자</span>
+                            <p class="card-text">남녀노소 모두 사랑하는 하와이안 오리진에 케이준 슈림프로 식감과 맛을 꽉 채운 피자!</p>
                         </div>
                     </div>
                 </a>
