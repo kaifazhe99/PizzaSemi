@@ -48,6 +48,9 @@ String num= dao.getMemberNum(myid);
                 <div class="flex-fill mx-xl-5 mb-2">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
                         <li class="nav-item">
+                            <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=notice/noticelist.jsp">공지사항</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link btn-outline-warning rounded-pill px-3" href="index.jsp?main=pizzamenu/menulist.jsp">메뉴</a>
                         </li>
                         <li class="nav-item">
@@ -62,7 +65,7 @@ String num= dao.getMemberNum(myid);
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-link text-dark" href="#"><i class='bx bx-cart bx-sm text-danger'></i>장바구니</a>
+                    <a class="#" href="#"><i class='#'></i></a>
                     <% if(loginok!=null){
                     	%>
                     	<a class="nav-link text-dark" href="index.jsp?main=login/mypageform.jsp?num=<%=num%>"><i class='bx bx-user-circle bx-sm text-danger'></i><%=name+"님" %></a>
