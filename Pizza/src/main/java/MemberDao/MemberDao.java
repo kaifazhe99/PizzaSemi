@@ -13,7 +13,7 @@ import mysql.db.DbConnect;
 public class MemberDao {
 	DbConnect db=new DbConnect();
 	
-	//���̵� üũ
+	//占쏙옙占싱듸옙 체크
 	public boolean isIdCheck(String id)
 	{
 		boolean isid=false;
@@ -24,11 +24,11 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, id);
-			//����
+			//占쏙옙占쏙옙
 			rs=pstmt.executeQuery();
-			if(rs.next())//�ش���̵� ������ ��� true
+			if(rs.next())//占쌔댐옙占쏙옙絹占� 占쏙옙占쏙옙占쏙옙 占쏙옙占� true
 				isid=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,7 +39,7 @@ public class MemberDao {
 		return isid;
 	}
 
-	//���̵� ���� �̸� ��ȯ
+	//占쏙옙占싱듸옙 占쏙옙占쏙옙 占싱몌옙 占쏙옙환
 	public String getName(String id)
 	{
 		String name="";
@@ -50,9 +50,9 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, id);
-			//����
+			//占쏙옙占쏙옙
 			rs=pstmt.executeQuery();
 			if(rs.next())
 				name=rs.getString("name");
@@ -76,9 +76,9 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, id);
-			//����
+			//占쏙옙占쏙옙
 			rs=pstmt.executeQuery();
 			if(rs.next())
 				num=rs.getString("num");
@@ -101,14 +101,14 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
 			pstmt.setString(3, dto.getPass());
 			pstmt.setString(4, dto.getHp());
 			pstmt.setString(5, dto.getAddr());
 			pstmt.setString(6, dto.getEmail());
-			//����
+			//占쏙옙占쏙옙
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -118,7 +118,7 @@ public class MemberDao {
 		}
 	}
 	
-	//ȸ�� ���
+	//회占쏙옙 占쏙옙占�
 	public List<MemberDto> getAllMembers()
 	{
 		List<MemberDto> list=new ArrayList<MemberDto>();
@@ -154,7 +154,7 @@ public class MemberDao {
 		return list;
 	}
 	
-	//ȸ�� dto ��ȯ
+	//회占쏙옙 dto 占쏙옙환
 	public MemberDto getMember(String num)
 	{
 		MemberDto dto=new MemberDto();
@@ -186,7 +186,7 @@ public class MemberDao {
 		return dto;
 	}
 	
-	//��й�ȣ üũ
+	//占쏙옙橘占싫� 체크
 	public boolean isPassEqual(String num,String pass)
 	{
 		boolean b=false;
@@ -214,7 +214,7 @@ public class MemberDao {
 	}
 	
 	
-	//����
+	//占쏙옙占쏙옙
 	public void deleteMember(String num)
 	{
 		Connection conn=db.getConnection();
@@ -223,9 +223,9 @@ public class MemberDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, num);
-			//����
+			//占쏙옙占쏙옙
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -235,21 +235,23 @@ public class MemberDao {
 		}
 	}
 	
-	//����
+	//占쏙옙占쏙옙
 	public void updateMember(MemberDto dto)
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql="update pimember set name=?,hp=?,addr=?,email=? where num=?";
+		String sql="update pimember set name=?,pass=?,hp=?,addr=?,email=? where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//���ε�
+			//占쏙옙占싸듸옙
 			pstmt.setString(1, dto.getName());
-			pstmt.setString(2, dto.getHp());
-			pstmt.setString(3, dto.getAddr());
-			pstmt.setString(4, dto.getNum());
-			//����
+			pstmt.setString(2, dto.getPass());
+			pstmt.setString(3, dto.getHp());
+			pstmt.setString(4, dto.getAddr());
+			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(6, dto.getNum());
+			//占쏙옙占쏙옙
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -259,7 +261,7 @@ public class MemberDao {
 		}
 	}
 	
-	//���̵�� ��й�ȣ üũ
+	//占쏙옙占싱듸옙占� 占쏙옙橘占싫� 체크
 	public boolean isIdPass(String id,String pass)
 	{
 		boolean b=false;

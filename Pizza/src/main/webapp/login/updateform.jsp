@@ -21,25 +21,32 @@ MemberDto dto = dao.getMember(num);
 //이메일 분리하기(@기준으로)
 int idx = dto.getAddr().indexOf(',');
 String addr1 = dto.getAddr().substring(0, idx);//0부터 idx-1 까지 추출
-String addr2 = dto.getAddr().substring(idx + 1);//idx+1부터 끝까지 추출
+String addr2 = dto.getAddr().substring(idx+1);//idx+1부터 끝까지 추출
 
 int idx1=dto.getEmail().indexOf('@');
 String email1=dto.getEmail().substring(0,idx1);//0부터 idx-1 까지 추출
 String email2=dto.getEmail().substring(idx1+1);//idx+1부터 끝까지 추출
 %>
 <body>
+<div align="center">
 	<h3
-		style="margin-left: 50px; margin-top: 50px; font-family: Black Han Sans;">수정페이지</h3>
+		style="margin-top: 50px; font-family: Black Han Sans;">수정페이지</h3>
 	<form action="login/memberupdate.jsp" method="post" class="form-inline"
 		name="memberfrm">
 		<input type="hidden" name="num" value="<%=num%>">
 		<table class="table table-bordered"
-			style="width: 500px; margin-left: 580px;">
+			style="width: 500px;">
 			<tr>
 				<th width="100" bgcolor="#aaa">이름</th>
 				<td><input type="text" name="name" class="form-control"
 					required="required" style="width: 120px;"
 					value="<%=dto.getName()%>"></td>
+			</tr>
+			<tr>
+				<th width="100" bgcolor="#aaa">비밀번호</th>
+				<td><input type="password" name="pass" class="form-control"
+					required="required" style="width: 120px;"
+					value=""></td>
 			</tr>
 			<tr>
 				<th width="100" bgcolor="#aaa">핸드폰</th>
@@ -87,8 +94,37 @@ String email2=dto.getEmail().substring(idx1+1);//idx+1부터 끝까지 추출
 		</table>
 		<br>
 		<br>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+// 사용할 function명 적어주기
+function findAddr() {
+	daum.postcode.load(function() {
+		new daum.Postcode({
+			oncomplete: function(data){
+				// 각 주소의 규칙에 따라 주소 조합
+				// 가져올 변수가 없을때는 공백을 가지기 때문에 이를 참고해 분기한다고 한다
+				var addr = ''; //주소 변수
+				
+				
+				// 사용자가 선택한 주소타입(도로명/지번)에 따라 해당 값 가져오기
+				// 만약 사용자가 도로명 주소를 선택했을 때
+				if (data.userSelectedType == 'R') {
+					addr = data.roadAddress;
+				// 만약 사용자가 구주소를 선택했을 때
+				} else {
+					addr = data.jibunaddress;
+				}
+				// 우편번호
+				document.getElementById('userZipcode').value = data.zonecode;
+				// 주소정보
+				document.getElementById('addr1').value = addr;
+				}
+		}).open();
+	});
+}
+</script>
 	</form>
-
+</div>
 
 
 </body>

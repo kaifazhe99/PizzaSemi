@@ -16,9 +16,9 @@ if (saveok != null) {
 %>
 
 <body>
-	<h3
-		style="margin-left: 50px; margin-top: 50px; font-family: Black Han Sans;">로그인</h3>
-	<div style="margin-left: 580px; margin-top: 50px;">
+	<div align="center">
+	<h2 style="font-family: Black Han Sans; margin-top: 50px;">로그인</h2>
+	<div>
 		<form action="login/loginaction.jsp" method="post" class="form-inline">
 			<table class="table"
 				style="width: 500px; border-bottom-color: white;">
@@ -66,6 +66,7 @@ if (saveok != null) {
 
 
 		</form>
+	</div>
 	</div>
 	<br>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>

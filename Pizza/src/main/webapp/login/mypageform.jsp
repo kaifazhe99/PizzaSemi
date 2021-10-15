@@ -63,12 +63,12 @@
   	<input type="password" id="delpass" style="width: 120px;">
   	<button id="delask">삭제하기</button>
   	
-  </p>
 </div>
 
 <body>
-<h3 style="margin-left: 50px; margin-top: 50px; font-family: Black Han Sans;" >마이페이지</h3>
-<table class="table table-bordered" style="width: 500px; margin-left: 580px;">
+<div align="center">
+<h2 style="font-family: Black Han Sans; margin-top: 50px;">마이페이지</h2>
+<table class="table table-bordered" style="width: 500px;">
 	<tr>
 		<th width="100" bgcolor="#aaa">이름</th>
 		<td>
@@ -99,6 +99,7 @@
 	
 	
 </table>
+</div>
 <br><br>
 
 

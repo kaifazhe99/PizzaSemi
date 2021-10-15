@@ -50,10 +50,10 @@
 </script>
 </head>
 <body>
-	<h3
-		style="margin-left: 50px; margin-top: 50px; font-family: Black Han Sans;">회원가입</h3>
+<div align="center">
+	<h2 style="font-family: Black Han Sans; margin-top: 50px;">회원가입</h2>
 	<form action="member/memberadd.jsp" method="post" class="form-inline"
-		name="memberfrm" style="margin-left: 580px; margin-top: 50px;"
+		name="memberfrm" style=" margin-top: 50px;"
 		onsubmit="return check(this)">
 		<table class="table table-bordered" style="width: 550px;">
 			<tr>
@@ -110,13 +110,14 @@
 			</tr>
 			<tr>
 				<td align="center" colspan="2">
-					<button type="submit" class="btn btn-default" style="width: 100px;">저장하기</button>
+					<button type="submit" class="btn btn-default" style="width: 100px;">가입하기</button>
 					<button type="reset" class="btn btn-default" style="width: 100px;">다시하기</button>
 				</td>
 			</tr>
 
 		</table>
 	</form>
+	</div>
 	
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

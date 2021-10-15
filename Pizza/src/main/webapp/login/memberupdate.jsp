@@ -9,14 +9,18 @@
 	//데이터 읽어서 dto 넣기
 	MemberDto dto=new MemberDto();
 	String num=request.getParameter("num");
+	String pass=request.getParameter("pass");
 	String name=request.getParameter("name");
 	String hp=request.getParameter("hp");
-	String addr=request.getParameter("addr");
+	String addr=request.getParameter("addressName1")+","+request.getParameter("addressName2");
+	String email=request.getParameter("email1")+"@"+request.getParameter("email2");
 	
 	dto.setNum(num);
 	dto.setName(name);
+	dto.setPass(pass);
 	dto.setAddr(addr);
 	dto.setHp(hp);
+	dto.setEmail(email);
 	
 	//dao 선언후 update 메서드 호출
 	MemberDao dao=new MemberDao();
