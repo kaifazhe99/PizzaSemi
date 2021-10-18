@@ -58,7 +58,7 @@
 	});
 </script>
 </head>
-	<% 
+<% 
 	String loginok=(String)session.getAttribute("loginok");
 
 	String num=request.getParameter("num");
@@ -81,7 +81,7 @@
 <body>
 	<br>
 	<br>
-	<div style="height: 900px; margin-bottom: 100px;" align="center">
+	<div style="height: auto; margin-bottom: 100px;" align="center">
 		<h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
 		<br>
 		<table class="table table-bordered"
@@ -119,14 +119,10 @@
 				%>
 					<button type="button" class="btn btn-sm btn-info"
 						style="width: 80px; color: white;"
-						onclick="location.href='index.jsp?main=customer/customerform.jsp'">글쓰기</button>
-
-					<button type="button" class="btn btn-sm btn-info"
-						style="width: 80px; color: white;"
 						onclick="location.href='index.jsp?main=customer/updateform.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>'">수정</button>
 
-					<button type="button" class="delbtn btn btn-sm btn-info" style="width: 80px; color: white;"
-					 	num="<%= dto.getNum() %>">삭제</button>
+					<button type="button" class="delbtn btn btn-sm btn-info"
+						style="width: 80px; color: white;" num="<%= dto.getNum() %>">삭제</button>
 					<%}
 			%>
 				</td>
@@ -162,8 +158,8 @@
 										<%= sdf.format(cdto.getWriteday()) %>
 								</span> <% 
 									//댓글 삭제는 로그인중이면서 로그인한 아이디와 같을 경우에만 삭제 아이콘 보이게 하기
-									if(loginok!=null && cdto.getMyid().equals(myid)){%> 
-									<span class="cdel" idx="<%= cdto.getIdx() %>"
+									if(loginok!=null && cdto.getMyid().equals(myid)){%> <span
+									class="cdel" idx="<%= cdto.getIdx() %>"
 									style="font-size: 10pt; cursor: pointer; margin-left: 10px; color: #626262;">삭제</span>
 									<%}
 									%> <br> <span style="font-size: 11pt;"> <%= cdto.getContent().replace("\n", "<br>") %>
@@ -203,6 +199,5 @@
 			</tr>
 		</table>
 	</div>
-	<br><br><br>
 </body>
 </html>

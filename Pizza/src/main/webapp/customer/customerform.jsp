@@ -51,8 +51,7 @@
 					style="width: 120px;"
 					onclick="location.href='index.jsp?main=customer/customerlist.jsp'">취소</button>
 			</td>
-		</tr>
-		
+		</tr>		
 	</table> 
 </form>
 </div>
@@ -96,7 +95,7 @@ function submitContents(elClickedObj) {
 // textArea에 이미지 첨부
 
 function pasteHTML(filepath){
-    var sHTML = '<img src="<%=request.getContextPath()%>/save/'+filepath+'">';
+    var sHTML = '<img width="600" src="<%=request.getContextPath()%>/save/'+filepath+'">';
     oEditors.getById["content"].exec("PASTE_HTML", [sHTML]); 
 
 }

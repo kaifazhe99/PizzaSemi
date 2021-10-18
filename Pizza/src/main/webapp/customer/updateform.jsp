@@ -36,14 +36,14 @@
 	CustomerDto dto=dao.getData(num);
 %>
 <body>
-	<form action="customer/updateaction.jsp" method="post"
-		class="form-inline">
+<div style="height: 500px; margin-bottom: 250px;" align="center">
+	<form action="customer/updateaction.jsp" method="post">
 		<input type="hidden" name="num" value="<%=num %>">
 		<input type="hidden" name="currentPage" value="<%=currentPage%>"> <br>
 		<h2 style="font-family: 'Black Han Sans';">고객의 소리</h2>
 		<hr>
-		<table class="table table-bordered"
-			style="width: 100%; border-top-color: white; border-bottom-color: white; border-right-color: white;">
+		<table class="table table-bordered" style="width: 900px; 
+		border-right:white;border-top:#e0e0e0;border-left:white;border-bottom:#e0e0e0;">
 			<tr>
 				<th bgcolor="orange" width="100" valign="middle"
 					style="text-align: center;">제 목</th>
@@ -67,11 +67,9 @@
 						onclick="location.href='index.jsp?main=customer/detail.jsp?num=<%= dto.getNum() %>&currentPage=<%= currentPage %>'">취소</button>
 				</td>
 			</tr>
-
 		</table>
-		</div>
 	</form>
-
+</div>
 	<!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
 	<script type="text/javascript">
 var oEditors = [];
@@ -112,7 +110,7 @@ function submitContents(elClickedObj) {
 // textArea에 이미지 첨부
 
 function pasteHTML(filepath){
-    var sHTML = '<img src="<%=request.getContextPath()%>/save/'+filepath+'">';
+    var sHTML = '<img width="600" src="<%=request.getContextPath()%>/save/'+filepath+'">';
     oEditors.getById["content"].exec("PASTE_HTML", [sHTML]); 
 
 }

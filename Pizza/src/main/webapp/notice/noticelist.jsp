@@ -55,8 +55,10 @@
 %>
 <body>
 <!-- 게시판 출력 -->
+<br><br>
 <div style="height: 500px; margin-bottom: 100px;" align="center">
 <h2 style="font-family: 'Black Han Sans';">공지사항</h2>
+<br>
 <table class="table table-bordered" style="width: 900px;">
 	
 	<tr bgcolor="#ddd">
