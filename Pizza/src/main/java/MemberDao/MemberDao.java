@@ -50,9 +50,9 @@ public class MemberDao {
 
 		try {
 			pstmt=conn.prepareStatement(sql);
-			//占쏙옙占싸듸옙
+			//
 			pstmt.setString(1, id);
-			//占쏙옙占쏙옙
+			//
 			rs=pstmt.executeQuery();
 			if(rs.next())
 				name=rs.getString("name");

@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import data.dto.EtcmenuDto;
 import data.dto.PizzamenuDto;
+import data.dto.SidemenuDto;
 import mysql.db.DbConnect;
 
 public class PizzamenuDao {
@@ -144,6 +146,64 @@ public class PizzamenuDao {
 				}finally {
 					db.dbClose(pstmt, conn);
 				}
+			}
+		
+		//사이드메뉴출력
+			public ArrayList<SidemenuDto> getSideDatas(){
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				String sql="select * from sidemenu order by num desc";
+				
+				ArrayList<SidemenuDto> list=new ArrayList<SidemenuDto>();
+				try {
+					pstmt=conn.prepareStatement(sql);
+					rs=pstmt.executeQuery();
+					
+					while(rs.next()) {
+					SidemenuDto dto=new SidemenuDto();
+					dto.setNum(rs.getString("num"));
+					dto.setSname(rs.getString("sname"));
+					dto.setPrice(rs.getString("price"));
+					dto.setPhotoname(rs.getString("photoname"));
+					//list에 추가
+					list.add(dto);
+					}
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}finally {
+					db.dbClose(rs, pstmt,conn);
+				}
+				return list;
+			}
+			
+			//음료기타메뉴출력
+			public ArrayList<EtcmenuDto> getEtcDatas(){
+				Connection conn=db.getConnection();
+				PreparedStatement pstmt=null;
+				ResultSet rs=null;
+				String sql="select * from etcmenu order by num desc";
+				
+				ArrayList<EtcmenuDto> list=new ArrayList<EtcmenuDto>();
+				try {
+					pstmt=conn.prepareStatement(sql);
+					rs=pstmt.executeQuery();
+					
+					while(rs.next()) {
+					EtcmenuDto dto=new EtcmenuDto();
+					dto.setNum(rs.getString("num"));
+					dto.setEname(rs.getString("ename"));
+					dto.setPrice(rs.getString("price"));
+					dto.setPhotoname(rs.getString("photoname"));
+					//list에 추가
+					list.add(dto);
+					}
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}finally {
+					db.dbClose(rs, pstmt,conn);
+				}
+				return list;
 			}
 		
 		
