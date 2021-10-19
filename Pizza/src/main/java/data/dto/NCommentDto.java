@@ -39,5 +39,4 @@ public class NCommentDto {
 	public void setWriteday(Timestamp writeday) {
 		this.writeday = writeday;
 	}
-
 }

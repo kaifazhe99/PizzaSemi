@@ -5,9 +5,9 @@ import java.sql.Timestamp;
 public class NoticeDto {
 	private String num;
 	private String myid;
-	private String title;
+	private String subject;
 	private String content;
-	private int view;
+	private int views;
 	private Timestamp writeday;
 	
 	public String getNum() {
@@ -22,11 +22,11 @@ public class NoticeDto {
 	public void setMyid(String myid) {
 		this.myid = myid;
 	}
-	public String getTitle() {
-		return title;
+	public String getSubject() {
+		return subject;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 	public String getContent() {
 		return content;
@@ -34,11 +34,11 @@ public class NoticeDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public int getView() {
-		return view;
+	public int getViews() {
+		return views;
 	}
-	public void setView(int view) {
-		this.view = view;
+	public void setViews(int views) {
+		this.views = views;
 	}
 	public Timestamp getWriteday() {
 		return writeday;
@@ -47,4 +47,5 @@ public class NoticeDto {
 		this.writeday = writeday;
 	}
 	
+
 }

@@ -17,7 +17,7 @@ public class NCommentDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql = "insert into answer (num,myid,content,writeday) values (?,?,?,now())";
+		String sql = "insert into ncomment (num, myid, content,writeday) values (?,?,?,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -43,7 +43,7 @@ public class NCommentDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		String sql = "select * from answer where num=? order by idx";
+		String sql = "select * from ncomment where num=? order by idx";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class NCommentDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql = "delete from answer where idx=?";
+		String sql = "delete from ncomment where idx=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

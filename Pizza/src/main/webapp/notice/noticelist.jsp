@@ -1,56 +1,79 @@
+<%@page import="data.dto.NCommentDto"%>
+<%@page import="data.dao.NCommentDao"%>
+<%@page import="MemberDao.MemberDao"%>
 <%@page import="data.dto.NoticeDto"%>
 <%@page import="data.dao.NoticeDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>Insert title here</title>
+<style type="text/css">
+	a:link {
+	  color : black;
+	  text-decoration: none;
+	}
+	a:visited {
+	  color : black;
+	  text-decoration: none;
+	}
+	a:hover {
+	  color : black;
+	  text-decoration: none;
+	}
+	a:active {
+	  color : pink;
+	  text-decoration: none;
+	}
+</style>
 </head>
-<%
+<% 
+	String loginok=(String)session.getAttribute("loginok");
+
 	NoticeDao dao=new NoticeDao();
-	//페이징 처리에 필요한 변수 선언
-	int perPage=5;//한페이지에 보여질 글의 갯수
-	int totalCount;//총 글의 수
-	int currentPage;//현재 페이지 번호
-	int totalPage;//총 페이지 수
-	int start;//각 페이지에서 불러올 db의 시작번호
-	int perBlock=5;//몇개의 페이지 번호씩 표현할것인가
-	int startPage;//각 블럭에 표시할 시작페이지
-	int endPage;//각 블럭에 표시할 마지막페이지
+	//페이징 처리에 필요한 변수선언
+	int perPage=10;	//한 페이지에 보여질 글의 개수
+	int totalCount;	//총 글의 개수
+	int currentPage; //현재 페이지 번호
+	int totalPage;	//총 페이지 수
+	int start;	//각 페이지에서 불러올 db의 시작번호
+	int perBlock=5;	//몇개의 페이지번호를 표현할건지...(ex)목록 하단이나 상단에 나오는 1~n페이지 번호))
+	int startPage;	//각 블럭에 표시할 시작페이지
+	int endPage;	//각 블럭에 표시할 마지막페이지
 	
-	//총 갯수
+	//총 개수
 	totalCount=dao.getTotalCount();
-	//현재 페이지 번호 읽기(단 null일 경우는 1페이지로 설정)
+	//현재 페이지 번호 읽기(단, null일 경우에는 1페이지로 설정)
 	if(request.getParameter("currentPage")==null)
 		currentPage=1;
 	else
 		currentPage=Integer.parseInt(request.getParameter("currentPage"));
 	
-	//총 페이지 갯수 구하기
+	//총 페이지 개수 구하기
 	totalPage=totalCount/perPage+(totalCount%perPage==0?0:1);
 	//각 블럭의 시작페이지
-	startPage=(currentPage-1)/perBlock*perBlock+1;   //7페이지일 경우 7/5*5+1 = 6 시작
-	endPage=startPage+perBlock-1; // 위의 경우 6+5-1 10페이지
+	startPage=(currentPage-1)/perBlock*perBlock+1;
+	endPage=startPage+perBlock-1;
 	if(endPage>totalPage)
 		endPage=totalPage;
 	//각 페이지에서 불러올 시작번호
-	start=(currentPage-1)*perPage; //mysql은 첫번째 글이 0번, 오라클은 1번부터 시작이므로 start=(currentPage-1)*perPage+1;
+	start=(currentPage-1)*perPage;// 오라클은 start=(currentPage-1)*perPage+1;
 	//각 페이지에서 필요한 게시글 가져오기
 	List<NoticeDto> list=dao.getList(start, perPage);
 	
 	if(list.size()==0 && totalCount>0)
 	{%>
 		<script type="text/javascript">
-			location.href="index.jsp?main=notice/noticelist.jsp?currentPage=<%=currentPage-1%>";
+			location.href="index.jsp?main=notice/noticelist.jsp?currentPage=<%= currentPage-1 %>";
 		</script>
 	<%}
-	
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-	//각페이지에 출력할 시작번호
+	
+	//각 페이지에 출력할 시작번호
 	int no=totalCount-(currentPage-1)*perPage;
 %>
 <body>
@@ -59,77 +82,101 @@
 <div style="height: 500px; margin-bottom: 100px;" align="center">
 <h2 style="font-family: 'Black Han Sans';">공지사항</h2>
 <br>
-<table class="table table-bordered" style="width: 900px;">
-	
-	<tr bgcolor="#ddd">
+<table class="table table-bordered" style="width: 900px; text-align: center; font-family: 'IBM Plex Sans KR'; 
+	border-right:white;border-top:black;border-left:white;border-bottom:#e0e0e0; border-collapse: collapse;">
+	<tr bgcolor="#fff">
 		<th width="70">번호</th>
-		<th width="350">공지사항</th>
-		<th width="100">담당자</th>
-		<th width="150">작성일</th>
-		<th width="70">조회</th>		
+		<th width="350">제목</th>
+		<th width="100">작성자</th>
+		<th width="100">작성일</th>
+		<th width="70">조회</th>
 	</tr>
 	<%
 	if(totalCount==0)
 	{%>
 		<tr height="40">
 			<td colspan="5" align="center">
-				<b>등록된 게시글이 없습니다</b>
+				<b>등록된 게시글이 없습니다.</b>
 			</td>
 		</tr>
 	<%}else{
+		MemberDao mdao=new MemberDao();
 		for(NoticeDto dto:list)
-		{%>
+		{
+			String name=mdao.getName(dto.getMyid());
+		%>
 			<tr>
-				<td align="center"><%=no--%></td>
+				<td align="center"><%= no-- %></td>
 				<td>
-					<a style="color: black;"
-					href="index.jsp?main=notice/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">
-					<%=dto.getTitle()%>
+					<% 
+						//각 방명록에 달린 댓글 목록 가져오기
+						NCommentDao adao=new NCommentDao();
+						List<NCommentDto> clist=adao.getAllNComment(dto.getNum());
+					%>
+					<a style="color: black;" 
+						href="index.jsp?main=notice/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">
+					<%= dto.getSubject() %>&nbsp;
+					<a style="color: red; font-size: 10pt; font-weight: bold;"
+						href="index.jsp?main=notice/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">[<%= clist.size() %>]</a>
 					</a>
 				</td>
-				<td><%=dto.getMyid()%></td>
-				<td><%=sdf.format(dto.getWriteday())%></td>
-				<td><%=dto.getView()%></td>
+				<td><%= name %></td>
+				<td><%= sdf.format(dto.getWriteday()) %></td>
+				<td><%= dto.getViews() %></td>			
 			</tr>
 		<%}
 	}
-	%>	
-</table>
-
-<!-- 페이징 -->
-<div style="width: 900px; text-align: center;">
-	<ul class="pagination">
-	<%
-	//이전
-	if(startPage>1)
-	{%>
-		<li>
-			<a href="index.jsp?main=notice/noticelist.jsp?currentPage=<%=startPage-1%>">이전</a>
-		</li>
-	<%}
-	
-	for(int pp=startPage;pp<=endPage;pp++)
-	{
-		if(pp==currentPage) //현재 페이지일때 active
-		{%>
-			<li class="active">
-			<a href="index.jsp?main=notice/noticelist.jsp?currentPage=<%=pp%>"><%=pp%></a></li>
-		<%}else{%>
-			<li>
-			<a href="index.jsp?main=notice/noticelist.jsp?currentPage=<%=pp%>"><%=pp%></a></li>
-		<%}
-	}
-	
-	//다음
-	if(endPage<totalPage)
-	{%>
-		<li>
-			<a href="index.jsp?main=notice/noticelist.jsp?currentPage=<%=endPage+1%>">다음</a>
-		</li>
-	<%}
 	%>
+</table>
+<div style="position: absolute; margin-left: 290px;">
+<% 
+	if(loginok!=null){	//로그인 상태일때만 입력폼이 보이도록 한다.
+	%>		
+		<button type="button" class="btn btn-success btn-sm" 
+		style="color:white; width: 90px; margin-left: 20px; font-family: 'Nanum Gothic:wght@800;';"
+		onclick="location.href='index.jsp?main=notice/noticeform.jsp'">
+		글쓰기</button>
+	<%}
+%>
+</div>
+<br><br>
+<!-- 페이징 -->
+<div style="position: absolute; margin-left: 700px;" align="center">
+	<ul class="pagination">
+		<%
+		//이전
+		if(startPage>1)
+		{%>
+			<li>
+				<a style="color: tomato;" href="index.jsp?main=notice/noticelist.jsp?currentPage=<%= startPage-1 %>">이전</a>&nbsp;&nbsp;
+			</li>
+		<%}
+		for(int pp=startPage;pp<=endPage;pp++)
+		{
+			if(pp==currentPage)	//현재 페이지일때 active
+			{%>
+				<li class="active">
+					<a style="color: black;" href="index.jsp?main=notice/noticelist.jsp?currentPage=<%= pp %>"><%= pp %></a>&nbsp;&nbsp;
+				</li>
+			<%}else{%>
+				<li>
+					<a style="color: lightgray;" href="index.jsp?main=notice/noticelist.jsp?currentPage=<%= pp %>"><%= pp %></a>&nbsp;&nbsp;
+				</li>
+			<%}
+		}
+		
+		//다음
+		if(endPage<totalPage)
+		{%>
+			<li>
+				<a style="color: tomato;" href="index.jsp?main=notice/noticelist.jsp?currentPage=<%= endPage+1 %>">다음</a>
+			</li>
+		<%}
+		%>
 	</ul>
 </div>
 </div>
+<br><br>
 </body>
+
 </html>

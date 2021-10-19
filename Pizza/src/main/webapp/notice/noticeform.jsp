@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>	
 <%
 	//프로젝트의 경로
 	String root=request.getContextPath();
@@ -16,49 +16,45 @@
 	charset="utf-8"></script>
 
 <script type="text/javascript" src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"
-	charset="utf-8"></script>	
+	charset="utf-8"></script>
 </head>
 <body>
-<form action="notice/smartaction.jsp" method="post">
-	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
-		<caption><h3>공지사항 작성폼입니다</h3></caption>
+<div style="height: 500px; margin-bottom: 250px;" align="center">
+<form action="notice/noticeaction.jsp" method="post">
+<br><br>
+	<h2 style="font-family: 'Black Han Sans';">공지사항</h2>
+	<br>
+	<table class="table table-bordered" style="width: 900px; 
+		border-right:white;border-top:#e0e0e0;border-left:white;border-bottom:#e0e0e0;">
 		<tr>
-			<th bgcolor="orange" width="100">작성자</th>
-			<td>
-				<input type="text" name="writer" class="form-control"
-					required="required" style="width: 130px;">
-			</td>
-		</tr>
-		<tr>
-			<th bgcolor="orange" width="100">제  목</th>
-			<td>
+			<th bgcolor="orange" width="100" valign="middle" style="text-align: center;">제&nbsp;&nbsp;&nbsp;목</th>
+			<td align="left">
 				<input type="text" name="subject" class="form-control"
-					required="required" style="width: 500px;">
+					required="required" style="width: 100%;">
 			</td>
 		</tr>
-		<tr>
+		<tr >
 			<td colspan="2">
 				<textarea name="content" id="content"		
 					required="required"			
-					style="width: 100%;height: 300px;display: none;"></textarea>		
+					style="width: 100%;height: 400px;display: none;"></textarea>		
 			
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<button type="button" class="btn btn-warning"
+				<button type="button" class="btn btn-info"
 					style="width: 120px;"
 					onclick="submitContents(this)">저장</button>
 				
-				<button type="button" class="btn btn-warning"
+				<button type="button" class="btn btn-danger"
 					style="width: 120px;"
-					onclick="location.href='index.jsp?main=notice/noticelist.jsp'">목록</button>
+					onclick="location.href='index.jsp?main=notice/noticelist.jsp'">취소</button>
 			</td>
-		</tr>
-		
-	</table>   
+		</tr>		
+	</table> 
 </form>
-
+</div>
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
 <script type="text/javascript">
 var oEditors = [];
@@ -99,7 +95,7 @@ function submitContents(elClickedObj) {
 // textArea에 이미지 첨부
 
 function pasteHTML(filepath){
-    var sHTML = '<img src="<%=request.getContextPath()%>/save/'+filepath+'">';
+    var sHTML = '<img width="600" src="<%=request.getContextPath()%>/save/'+filepath+'">';
     oEditors.getById["content"].exec("PASTE_HTML", [sHTML]); 
 
 }

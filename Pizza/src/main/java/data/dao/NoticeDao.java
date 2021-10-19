@@ -18,13 +18,13 @@ public class NoticeDao {
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql = "insert into notice (myid, title, content, writeday) values (?, ?, ?, now())";
+		String sql = "insert into notice (myid, subject, content, writeday) values (?,?,?,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			//바인딩
 			pstmt.setString(1, dto.getMyid());
-			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(2, dto.getSubject());
 			pstmt.setString(3, dto.getContent());
 			//실행
 			pstmt.execute();
@@ -81,9 +81,9 @@ public class NoticeDao {
 				NoticeDto dto=new NoticeDto();
 				dto.setNum(rs.getString("num"));
 				dto.setMyid(rs.getString("myid"));
-				dto.setTitle(rs.getString("title"));
+				dto.setSubject(rs.getString("subject"));
 				dto.setContent(rs.getString("content"));
-				dto.setView(rs.getInt("view"));
+				dto.setViews(rs.getInt("views"));
 				dto.setWriteday(rs.getTimestamp("writeday"));
 				//list에 추가
 				list.add(dto);
@@ -115,9 +115,9 @@ public class NoticeDao {
 			{
 				dto.setNum(rs.getString("num"));
 				dto.setMyid(rs.getString("myid"));
-				dto.setTitle(rs.getString("title"));
+				dto.setSubject(rs.getString("subject"));
 				dto.setContent(rs.getString("content"));
-				dto.setView(rs.getInt("view"));
+				dto.setViews(rs.getInt("views"));
 				dto.setWriteday(rs.getTimestamp("writeday"));
 			}			
 		} catch (SQLException e) {
@@ -129,56 +129,12 @@ public class NoticeDao {
 		return dto;
 	}
 	
-	//수정
-	public void updateNotice(NoticeDto dto)
-	{
-		Connection conn=db.getConnection();
-		PreparedStatement pstmt=null;
-		String sql = "update notice set title=?, content=? where num=?";
-		
-		try {
-			pstmt=conn.prepareStatement(sql);
-			//바인딩
-			pstmt.setString(1, dto.getTitle());
-			pstmt.setString(2, dto.getContent());
-			pstmt.setString(3, dto.getNum());
-			//실행
-			pstmt.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			db.dbClose(pstmt, conn);
-		}
-	}
-	
-	//삭제
-	public void deleteNotice(String num)
-	{
-		Connection conn=db.getConnection();
-		PreparedStatement pstmt=null;
-		String sql = "delete from notice where num=?";
-		
-		try {
-			pstmt=conn.prepareStatement(sql);
-			//바인딩
-			pstmt.setString(1, num);
-			//실행
-			pstmt.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			db.dbClose(pstmt, conn);
-		}
-	}
-	
 	//조회수 증가
-	public void updateView(String num)
+	public void updateViews(String num)
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
-		String sql = "update notice set view=view+1 where num=?";
+		String sql="update notice set views=views+1 where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -217,5 +173,49 @@ public class NoticeDao {
 			db.dbClose(rs, pstmt, conn);
 		}
 		return num;
+	}
+	
+	//수정
+	public void updateNotice(NoticeDto dto)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		String sql="update notice set subject=?, content=? where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, dto.getSubject());
+			pstmt.setString(2, dto.getContent());
+			pstmt.setString(3, dto.getNum());
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	//삭제
+	public void deleteNotice(String num)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		String sql = "delete from notice where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			//바인딩
+			pstmt.setString(1, num);
+			//실행
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
 	}
 }
