@@ -49,6 +49,14 @@ $(function(){
 		</td>
 	</tr>
 	<tr>
+		<th width="100" bgcolor="#aaa">비밀번호</th>
+		<td>
+			<input type="text" name="pass"  class="form-control"
+				required="required" style="width: 120px;"
+				value="<%=dto.getPass()%>">			
+		</td>
+	</tr>
+	<tr>
 		<th width="100" bgcolor="#aaa">핸드폰</th>
 		<td>
 			<input type="text" name="hp"  class="form-control"
@@ -84,7 +92,7 @@ $(function(){
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2">
+		<td align="center" colspan="2" style="padding-top: 10px;">
 			<button type="submit" class="btn btn-default"
 			style="width: 100px;">수정하기</button>
 			

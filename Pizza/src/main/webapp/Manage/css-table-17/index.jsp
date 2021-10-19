@@ -65,7 +65,7 @@
               <th scope="col"></th>
              
               <th scope="col">이름</th>
-              <th scope="col">아이디,비밀번호</th>
+              <th scope="col">아이디</th>
               <th scope="col">주소</th>
               <th scope="col">e-mail</th>
               <th scope="col">전화번호</th>
@@ -93,18 +93,28 @@
               </td>
               <td>
                 <%=dto.getId()%>
-                <small class="d-block"><%=dto.getPass() %></small>
+               
               </td>
               <td><%=dto.getAddr() %></td>
               <td><%=dto.getEmail() %></td>
               <td><%=dto.getHp() %></td>
               <td>
+              <%if(dto.getId().equals("admin")) { %> 
+             
+               <button type="button" class="btn btn-secondary" style="padding-right: 0px; padding-left: 12px;"
+              onclick="location.href='updatepass.jsp?num=<%=dto.getNum()%>'">
+              수정 </button>
+               삭제불가능
+                <%} else {%>
+              
               <button type="button" class="btn btn-secondary" style="padding-right: 0px; padding-left: 12px;"
               onclick="location.href='updatepass.jsp?num=<%=dto.getNum()%>'">
               수정 </button>
   	 		  <button type="button" class="btn btn-secondary" style="padding-right: 0px; padding-left: 12px;" class="delete"
   	 		   onclick="delfunc(<%=dto.getNum()%>)">
   	 		  삭제 </button>
+  	 		  
+  	 		  <%} %>
   	 		  </td>
             
             </tr>

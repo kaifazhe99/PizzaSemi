@@ -52,20 +52,11 @@ if (saveok != null) {
 					</td>
 
 				</tr>
-				
-				<tr>
-					<td>
-						<button type="submit" class="btn btn-type-brd5"
-							style="width: 500px; height: 60px; border: 1px solid black;"
-							onclick="location.href='index.jsp?main=member/memberform.jsp'">회원가입</button>
-					</td>
-				</tr>
-
-
-			</table>
-
-
+			</table>				
 		</form>
+		<button type="submit" class="btn btn-type-brd5"
+											style="width: 500px; height: 60px; border: 1px solid black;"
+											onclick="location.href='index.jsp?main=member/memberform.jsp'">회원가입</button>
 	</div>
 	</div>
 	<br>

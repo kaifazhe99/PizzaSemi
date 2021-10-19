@@ -83,16 +83,16 @@ https://templatemo.com/tm-561-purple-buzz
     <section class="service-wrapper py-3">
         <div class="container-fluid pb-3">
             <div class="row">
-                <h2 class="h2 text-center col-12 py-5 semi-bold-600">Services</h2>
+                <h2 class="h2 text-center col-12 py-5 semi-bold-600">Slogan</h2>
                 <div class="service-header col-2 col-lg-3 text-end light-300">
                     <i class='bx bx-gift h3 mt-1'></i>
                 </div>
                 <div class="service-heading col-10 col-lg-9 text-start float-end light-300">
-                    <h2 class="h3 pb-4 typo-space-line">Make Success for future</h2>
+                    <h2 class="h3 pb-4 typo-space-line">Just do eat</h2>
                 </div>
             </div>
             <p class="service-footer col-10 offset-2 col-lg-9 offset-lg-3 text-start pb-3 text-muted px-2">
-                You are free to use this template for your commercial or business websites. You are not allowed to re-distribute this template ZIP file on any template collection websites. It is too easy to illegally copy and repost this template.
+               Monsieur, notre équipe ne s'en sort pas bien, donc nous laissons ce message caché. S'il vous plaît, pensez à nous si vous le voyez. Merci, monsieur.
             </p>
         </div>
 
@@ -101,23 +101,23 @@ https://templatemo.com/tm-561-purple-buzz
     </section>
 
     <section class="container overflow-hidden py-5">
+        <h2 align="center">Best Menu</h2><br>
         <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
-
             <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project ui branding">
+            <div class="col-xl-3 col-md-4 col-sm-6 project ui branding" onclick="location.href='index.jsp?main=pizzamenu/menulist.jsp'">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
                     <img class="service card-img" src="pizzaimg/bulgogi.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="service-work-content text-left text-light">
                             <span class="btn btn-outline-light rounded-pill mb-lg-3 px-lg-4 light-300">불고기피자</span>
-                            <p class="card-text">피자도우와 치즈만으로 승부한다! 토마토 소스와 모차렐라 치즈를 가득 넣은 피자.</p>
+                            <p class="card-text">피자도우와 불고기의 환상적인 만남!! 불고기를 가득 넣은 피자!! 남녀노소 좋아할 맛!!</p>
                         </div>
                     </div>
                 </a>
             </div><!-- End Recent Work -->
 
             <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
+            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic" onclick="location.href='index.jsp?main=pizzamenu/menulist.jsp'">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
                     <img class="card-img" src="pizzaimg/cheese.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -130,7 +130,7 @@ https://templatemo.com/tm-561-purple-buzz
             </div><!-- End Recent Work -->
 
             <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project branding">
+            <div class="col-xl-3 col-md-4 col-sm-6 project branding" onclick="location.href='index.jsp?main=pizzamenu/menulist.jsp'">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
                     <img class="card-img" src="pizzaimg/newyororigin.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -143,7 +143,7 @@ https://templatemo.com/tm-561-purple-buzz
             </div><!-- End Recent Work -->
 
             <!-- Start Recent Work -->
-            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic">
+            <div class="col-xl-3 col-md-4 col-sm-6 project ui graphic" onclick="location.href='index.jsp?main=pizzamenu/menulist.jsp'">
                 <a href="#" class="service-work card border-0 text-white shadow-sm overflow-hidden mx-5 m-sm-0">
                     <img class="card-img" src="pizzaimg/hawaiian.jpg" alt="Card image">
                     <div class="service-work-vertical card-img-overlay d-flex align-items-end">
@@ -155,6 +155,7 @@ https://templatemo.com/tm-561-purple-buzz
                 </a>
             </div>
             <!-- End Recent Work -->
+            </div>
     </section>
     <!-- End Service -->
 

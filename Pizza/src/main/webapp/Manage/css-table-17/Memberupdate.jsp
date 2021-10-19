@@ -11,12 +11,14 @@
 	String num=request.getParameter("num");
 	String name=request.getParameter("name");
 	String hp=request.getParameter("hp");
+	String pass=request.getParameter("pass");
 	String addr=request.getParameter("addr");
 	String email=request.getParameter("email1")+"@"+request.getParameter("email2");
 	
 	dto.setNum(num);
 	dto.setName(name);	
 	dto.setAddr(addr);
+	dto.setPass(pass);
 	dto.setEmail(email);
 	dto.setHp(hp);
 	

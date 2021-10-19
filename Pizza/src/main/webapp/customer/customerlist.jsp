@@ -113,7 +113,7 @@
 						CommentDao adao=new CommentDao();
 						List<CommentDto> clist=adao.getAllComment(dto.getNum());
 					%>
-					<a style="color: black;" 
+					<a style="color: black;"
 						href="index.jsp?main=customer/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>&key=list">
 					<%= dto.getSubject() %>&nbsp;
 					<a style="color: red; font-size: 10pt; font-weight: bold;"

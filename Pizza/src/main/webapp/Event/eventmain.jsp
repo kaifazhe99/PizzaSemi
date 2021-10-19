@@ -25,9 +25,12 @@
 	
 	}
 	
-	span.list{
-		border: 1px solid;
-		border-radius: 10px 10px 10px 10px;
+	.list{
+		
+   		margin-top: 30px;
+    	margin-bottom: 30px;
+    	margin-left: 30px;
+
 	
 	}
 	
@@ -46,6 +49,55 @@
 		width:300px;
 	
 	}
+	
+
+body{
+  text-align:center;
+}
+body:before{
+  content:'';
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}
+button{
+  background:red;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:red;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: red;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+	
 	
 	
 
@@ -119,54 +171,69 @@
 </head>
 
 <body>
-<div >
+<div>
  <span class="list">
-	<h2 style=" margin-bottom: 5px; margin-top: 5px;"><b>Event</b></h2>
-	<ul style=" padding-left: 20px;">	
-		<li id="event" style="cursor: pointer;">진행 중인 이벤트<div class="neon">New </div></li>
-		<li id="new" style="cursor: pointer;">신제품 소개<div class="flux">Click</div></li>
+	<h2 style=" margin-bottom: 5px; margin-top: 5px; "><b>&nbsp;Event</b></h2>
+	<ul style="padding-left: 10px; margin-left: 600px; display: flex; margin-top: 10px;">
+		<li id="ev" style="cursor: pointer;  float:left; margin-right:50px;">진행 중인 이벤트
+		<div class="flux">Click</div></li>
+		<li id="new" style="cursor: pointer; ">신제품 소개<div class="neon">New </div></li>
 	</ul>
 </span> 
 
 
 
 
+
 	
-<div id="eventimg" style="padding-left: 125px;">
+<div id="eventimg" style="padding-left: 0px; ">
 	<img class="event" id="1" style="top:20px; left:20px; " src="Event/event1/1.jpg"/>
 	<img class="event" id="2" style="top:20px; left:625px;" src="Event/event1/2.jpg"/>
 	<img class="event" id="3" style="top:275px; left:625px;"  src="Event/event1/3.jpg"/>
 	<img class="event" id="4" style="top:275px; left:20px;" src="Event/event1/4.jpg"/>
 </div>
-<br>
-<div id="newimg" style="
-    padding-left: 600px;
-">
-<figure >
+
+<div id="newimg" style=" padding-bottom: 10px;">
+<figure style="float:left; padding-left: 210px; padding-right: 50px;">
    <img src="Event/pizzaimg/hotchicken.jpg" style="width: 300px; ">
    <figcaption>
       <div>
-         <h3><b>캐롤라이나 핫치킨</b></h3><br>세상에서 가장 매운 고추 '캐롤라이나 리퍼'로<br>
- 매콤한 미국 현지 맛을 담은 피자!
+         <h3><b>캐롤라이나 핫치킨</b></h3>세상에서 가장 매운 고추 '캐롤라이나 리퍼'로<br>
+ 매콤한 미국 현지 맛을 담은 피자!<br><br>
+ 
       </div>
    </figcaption>
 </figure>
-<figure></figure>
+<figure style="float:left; padding-right: 50px;">
    <img src="Event/pizzaimg/superdelux.jpg" style="width: 300px;">
-   	<figcaption> <div>
-         <h3><b>슈퍼디럭스</b></h3><br>쇠고기, 페퍼로니, 햄, 버섯, 피망, 양파, 올리브 등<br>
-가장 많은 토핑이 들어가 풍부한 맛을 내는 피자!
+   	<figcaption>
+   	 <div>
+         <h3><b>슈퍼디럭스</b></h3>쇠고기, 페퍼로니, 햄, 버섯, 피망, 양파, 올리브 등<br>
+가장 많은 토핑이 들어가 풍부한 맛을 내는 피자!<br><br>
+
       </div>
       </figcaption>
 </figure>
-
+<figure style="width: 300px; height: 473px; float:left;">
+   <img src="Event/pizzaimg/hawaiian.jpg" style="width: 300px;">
+   	<figcaption>
+   	 <div>
+         <h3><b>하와이안 슈림프 피자</b></h3>하와이안 오리진에 케이준 슈림프로 식감과 맛을 꽉 채운 피자!<br>
+<br>
+ <button class="order">주문하러가기</button>
+      </div>
+      </figcaption>
+</figure>
+     
 </div>
 </div>
+<hr style="clear: both">
 <script>
 	
 	$("#newimg").hide();
 	
-	$("#event").click(function(){
+	$("#ev").click(function(){
+		console.log(111);
 		$("#eventimg").show();
 		$("#newimg").hide();
 		
@@ -175,6 +242,10 @@
 	$("#new").click(function(){
 		$("#eventimg").hide();
 		$("#newimg").show();	
+	});
+	
+	$(".order").click(function(){
+		location.href='index.jsp?main=pizzamenu/menulist.jsp';
 	});
 	
 
