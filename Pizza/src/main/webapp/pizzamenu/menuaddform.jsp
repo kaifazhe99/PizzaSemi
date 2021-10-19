@@ -92,7 +92,7 @@ span.camera {
 					<div class="col-12">
 				<button type="submit" class="btn btn-danger rounded-pill px-md-5 px-4 py-2 radius-0 text-light">메뉴
 							등록</button>
-				<button type="submit" class="btn btn-danger rounded-pill px-md-5 px-4 py-2 radius-0 text-light"
+				<button type="button" class="btn btn-danger rounded-pill px-md-5 px-4 py-2 radius-0 text-light"
 				onclick="location.href='index.jsp?main=pizzamenu/menulist.jsp'">목록</button>
 							<br>
 						<br>

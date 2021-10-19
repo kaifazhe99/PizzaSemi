@@ -57,10 +57,9 @@ body{
 body:before{
   content:'';
   height:100%;
-  display:inline-block;
   vertical-align:middle;
 }
-button{
+button.order{
   background:red;
   color:#fff;
   border:none;
@@ -72,11 +71,11 @@ button{
   transition:800ms ease all;
   outline:none;
 }
-button:hover{
+button.order:hover{
   background:#fff;
   color:red;
 }
-button:before,button:after{
+button.order:before,button.order:after{
   content:'';
   position:absolute;
   top:0;
@@ -86,13 +85,13 @@ button:before,button:after{
   background: red;
   transition:400ms ease all;
 }
-button:after{
+button.order:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-button:hover:before,button:hover:after{
+button.order:hover:before,button.order:hover:after{
   width:100%;
   transition:800ms ease all;
 }

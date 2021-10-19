@@ -124,6 +124,10 @@
 					<button type="button" class="delbtn btn btn-sm btn-info"
 						style="width: 80px; color: white;" num="<%= dto.getNum() %>">삭제</button>
 					<%}
+				 if(loginok!=null && myid.equals("admin")){%>
+                 <button type="button" class="delbtn btn btn-sm btn-info"
+              	style="width: 80px; color: white;" num="<%= dto.getNum() %>">삭제</button>
+            <%}
 			%>
 				</td>
 			</tr>
@@ -183,7 +187,7 @@
 									<tr>
 										<td width="480"><textarea
 												style="width: 830px; height: 70px;" name="content"
-												required="required" class="form-control"></textarea></td>
+												required="required" class="form-control" placehorlder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea></td>
 										<td>
 											<button type="submit" class="btn btn-info"
 												style="width: 70px; height: 70px; color: white;">등록</button>

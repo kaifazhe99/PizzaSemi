@@ -81,7 +81,7 @@
 			<tr>
 				<th width="120" bgcolor="#aaa" align="center">핸드폰</th>
 				<td><input type="text" name="hp" required="required"
-					style="width: 200px;"><br> <a>SMS 수신 동의/비동의</a><input
+					style="width: 200px;"><br> <a>SMS 수신 동의</a><input
 					type="checkbox"></td>
 			</tr>
 
@@ -106,7 +106,7 @@
 						<option value="nate.com">네이트</option>
 						<option value="gmail.com">구글</option>
 						<option value="hanmail.com">다음</option>
-				</select><br> <a>광고성 메일 수신 동의/비동의</a><input type="checkbox"></td>
+				</select><br> <a>광고성 메일 수신 동의</a><input type="checkbox"></td>
 			</tr>
 			<tr>
 				<td align="center" colspan="2">

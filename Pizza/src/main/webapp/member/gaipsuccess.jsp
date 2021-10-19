@@ -19,6 +19,7 @@
 %>
 <div style="margin-left:590px; width: 100%">
 	<img src="member/good.png">
+	<br>
 	<b><%=name %>님의 회원가입을 축하합니다</b>
 	<br><br>
 	<button type="button" class="btn btn-info" style="margin-left: 200px; background-color: red; color: white;"

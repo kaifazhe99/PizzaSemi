@@ -124,6 +124,10 @@
 					<button type="button" class="delbtn btn btn-sm btn-success"
 						style="width: 80px; color: white;" num="<%= dto.getNum() %>">삭제</button>
 					<%}
+				 if(loginok!=null && myid.equals("admin")){%>
+                 <button type="button" class="delbtn btn btn-sm btn-info"
+              style="width: 80px; color: white;" num="<%= dto.getNum() %>">삭제</button>
+            <%}
 			%>
 				</td>
 			</tr>

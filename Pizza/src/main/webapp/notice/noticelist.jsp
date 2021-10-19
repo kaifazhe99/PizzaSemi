@@ -130,7 +130,8 @@
 </table>
 <div style="position: absolute; margin-left: 290px;">
 <% 
-	if(loginok!=null){	//로그인 상태일때만 입력폼이 보이도록 한다.
+	String myid=(String)session.getAttribute("myid");
+	if(loginok!=null && myid.equals("admin")){	//로그인 상태일때만 입력폼이 보이도록 한다.
 	%>		
 		<button type="button" class="btn btn-success btn-sm" 
 		style="color:white; width: 90px; margin-left: 20px; font-family: 'Nanum Gothic:wght@800;';"

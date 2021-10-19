@@ -175,7 +175,9 @@ public class MemberDao {
 				dto.setHp(rs.getString("hp"));
 				dto.setAddr(rs.getString("addr"));
 				dto.setGaipday(rs.getTimestamp("gaipday"));
-				dto.setEmail(rs.getString("email"));				
+				dto.setEmail(rs.getString("email"));
+				dto.setPass(rs.getString("pass"));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

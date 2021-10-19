@@ -46,7 +46,7 @@ String email2=dto.getEmail().substring(idx1+1);//idx+1부터 끝까지 추출
 				<th width="100" bgcolor="#aaa">비밀번호</th>
 				<td><input type="password" name="pass" class="form-control"
 					required="required" style="width: 120px;"
-					value=""></td>
+					value="<%=dto.getPass()%>"></td>
 			</tr>
 			<tr>
 				<th width="100" bgcolor="#aaa">핸드폰</th>
